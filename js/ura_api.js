@@ -10,12 +10,12 @@ let param  = {
     "token": TOKEN
     }
 
-console.log(param)
 async function loadData(){
     let response = await axios.post(PROXY, param)
     // let response = await axios.get("https://project1-proxy-server.herokuapp.com/test")
-    console.log(response.data)
-       
+    // console.log(response.data)
+    return response.data  
     }
        
+// console.log(loadData())
 loadData()
