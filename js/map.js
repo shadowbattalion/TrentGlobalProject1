@@ -37,5 +37,9 @@ async function findCarPark(){
 
 // findCarPark()
 
-let carParkMarker = L.marker([28716.24, 32600.27])
+var utm = "+proj=utm +zone=32";
+var wgs84 = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs";
+console.log(proj4(utm,wgs84,[28716.24, 32600.27]))
+
+let carParkMarker = L.marker(proj4(utm,wgs84,[28716.24, 32600.27]))
 carParkMarker.addTo(map)
