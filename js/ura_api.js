@@ -13,7 +13,7 @@ let param  = {
 async function loadData(){
     let response = await axios.post(PROXY, param)
     // let response = await axios.get("https://project1-proxy-server.herokuapp.com/test")
-    // console.log(response.data)
+    coansole.log(response.data)
     return response.data  
     }
        
