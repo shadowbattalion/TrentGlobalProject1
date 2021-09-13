@@ -48,59 +48,63 @@ function resolve_carpark_number(data, carpark_number){
 
 
 
-function percentage_to_icon(percentange){
+function percentage_to_icon(percentage){
 
     let icon = ""
 
-    if(percentage===100){
-
-        icon="images/full_100.png"
-
-    }else if(percentange >= 90 && percentange < 100){
-
-        icon="images/full_90.png"
-
-    }else if(percentange >= 80 && percentange < 90){
-
-        icon="images/full_80.png"
-        
-    }else if(percentange >= 70 && percentange < 80){
-
-        icon="images/full_70.png"
-        
-    }else if(percentange >= 60 && percentange < 70){
-
-        icon="images/full_60.png"
-        
-    }else if(percentange >= 50 && percentange < 60){
-
-        icon="images/full_50.png"
-        
-    }else if(percentange >= 40 && percentange < 50){
-
-        icon="images/full_40.png"
-        
-    }else if(percentange >= 30 && percentange < 40){
-
-        icon="images/full_30.png"
-        
-    }else if(percentange >= 20 && percentange < 30){
-
-        icon="images/full_20.png"
-        
-    }else if(percentange >= 10 && percentange < 20){
-
-        icon="images/full_10.png"
-        
-    }else if(percentange >= 0 && percentange < 10){
-
-        icon="images/full_0.png"
-        
-    }else{
+    if(percentage === null){
 
         icon="images/full_null.png"
-    }
 
+    } else {
+
+        if(percentage===100){
+
+            icon="images/full_100.png"
+
+        }else if(percentage >= 90 && percentage < 100){
+
+            icon="images/full_90.png"
+
+        }else if(percentage >= 80 && percentage < 90){
+
+            icon="images/full_80.png"
+            
+        }else if(percentage >= 70 && percentage < 80){
+
+            icon="images/full_70.png"
+            
+        }else if(percentage >= 60 && percentage < 70){
+
+            icon="images/full_60.png"
+            
+        }else if(percentage >= 50 && percentage < 60){
+
+            icon="images/full_50.png"
+            
+        }else if(percentage >= 40 && percentage < 50){
+
+            icon="images/full_40.png"
+            
+        }else if(percentage >= 30 && percentage < 40){
+
+            icon="images/full_30.png"
+            
+        }else if(percentage >= 20 && percentage < 30){
+
+            icon="images/full_20.png"
+            
+        }else if(percentage >= 10 && percentage < 20){
+
+            icon="images/full_10.png"
+            
+        }else if(percentage >= 0 && percentage < 10){
+
+            icon="images/full_0.png"
+            
+        }
+
+    }
 
     return icon
 
@@ -128,7 +132,7 @@ async function findCarPark(){
         let display_status =  {
                                 "available_lots" : "No information found",
                                 "total_lots": "No information found",
-                                "percentage_lots":0
+                                "percentage_lots":null
                                 }
         if (status){
        
@@ -142,7 +146,7 @@ async function findCarPark(){
         let lat = hdb_json_info.x_coord
         let lng = hdb_json_info.y_coord
      
-        
+        console.log(display_status["percentage_lots"])
         var modified_icon = L.icon({
                 iconUrl:      percentage_to_icon(display_status["percentage_lots"]),
                 iconSize:     [80, 80],
