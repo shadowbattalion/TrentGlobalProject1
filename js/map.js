@@ -112,41 +112,45 @@ function percentage_to_icon(percentage){
 }
 
 
+let carParkLayer = L.layerGroup()
 
 
-async function findCarPark(){
+async function getCarParkStatus(hdb_json_info_list, carParkLayer){
 
-    
+    carParkLayer.clearLayers()
 
-    let response = await axios.get("csv/hdb-carpark-information.csv");
-    let hdb_json_info_list = await csv().fromString(response.data);
     let data = await carParkStatus()
-
-      
 
     let carParkMarkerCluster = L.markerClusterGroup()
     for(let hdb_json_info of hdb_json_info_list){
         
         let status = resolve_carpark_number(data, hdb_json_info.car_park_no)
+        console.log(status)
         
         let display_status =  {
                                 "available_lots" : "No information found",
                                 "total_lots": "No information found",
-                                "percentage_lots":null
+                                "occupied_lots": "No information found",
+                                "percentage_lots":null,
+                                "last_updated_date": "Information found",
+                                "last_updated_time": "Information found"
                                 }
         if (status){
        
             display_status = {
-                                "available_lots":parseInt(status.carpark_info[0].lots_available),
+                                "available_lots":parseInt(status.carpark_info[0].lots_available), 
                                 "total_lots":parseInt(status.carpark_info[0].total_lots),
-                                "percentage_lots":(status.carpark_info[0].lots_available/status.carpark_info[0].total_lots)*100
+                                "occupied_lots": parseInt(status.carpark_info[0].total_lots) - parseInt(status.carpark_info[0].lots_available),
+                                "percentage_lots":((status.carpark_info[0].total_lots-status.carpark_info[0].lots_available)/status.carpark_info[0].total_lots)*100,
+                                "last_updated_date":status.update_datetime.split("T")[0],
+                                "last_updated_time":status.update_datetime.split("T")[1]
                                 }
         }
 
         let lat = hdb_json_info.x_coord
         let lng = hdb_json_info.y_coord
      
-        console.log(display_status["percentage_lots"])
+        // console.log(display_status["percentage_lots"])
         var modified_icon = L.icon({
                 iconUrl:      percentage_to_icon(display_status["percentage_lots"]),
                 iconSize:     [80, 80],
@@ -162,7 +166,7 @@ async function findCarPark(){
 
         let carParkMarker = L.marker(svy21ToWgs84(lng, lat),{"icon":modified_icon})
 
-        carParkMarker.bindPopup(`<h3 class="carpark_number">${hdb_json_info.address}</h3> <p> Carpark Number: ${hdb_json_info.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Total Lots: ${display_status["total_lots"]} </p><button class="refresh-btn">Refresh</button>`) //Check if refresh-btn attr should be class or id
+        carParkMarker.bindPopup(`<h3 id="carpark_number">${hdb_json_info.address}</h3> <p> Carpark Number: ${hdb_json_info.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Occupied Lots: ${display_status["occupied_lots"]} <br> Total Lots: ${display_status["total_lots"]} <br> Last updated date: ${display_status["last_updated_date"]} <br> Last updated time: ${display_status["last_updated_time"]} <br> <button onclick="refresh()">Refresh</button> </p>`) //Check if refresh-btn attr should be class or id
        
 
         carParkMarker.addTo(carParkMarkerCluster)
@@ -170,24 +174,37 @@ async function findCarPark(){
 
     }
 
-    carParkMarkerCluster.addTo(map)
-  
+    carParkMarkerCluster.addTo(carParkLayer)
+    carParkLayer.addTo(map)
+
 }
 
 
-findCarPark()
+async function findCarPark(carParkLayer){
 
-
-// let refresh_btn = document.querySelector(".refresh-btn")
-// refresh_btn.addEventListener("click", function(){
-
-//     // let status = await carParkStatus(hdb_json_info.car_park_no)
-//     // carParkMarker.bindPopup(`<p>${hdb_json_info.car_park_no} ${hdb_json_info.address} ${status}</p><button class="refresh-btn">Refresh</button>`) //Check if refresh-btn attr should be class or id
     
-//     let carpark_number = document.querySelector(".carpark_number")
-//     console.log(carpark_number)
 
-//     })
+    let response = await axios.get("csv/hdb-carpark-information.csv");
+    let hdb_json_info_list = await csv().fromString(response.data);
+    
+    getCarParkStatus(hdb_json_info_list, carParkLayer)
+     
+}
+
+
+findCarPark(carParkLayer)
+
+function refresh(){
+
+    // let status = await carParkStatus(hdb_json_info.car_park_no)
+    // carParkMarker.bindPopup(`<p>${hdb_json_info.car_park_no} ${hdb_json_info.address} ${status}</p><button class="refresh-btn">Refresh</button>`) //Check if refresh-btn attr should be class or id
+    
+    // let carpark_number = document.querySelector(".carpark_number")
+    console.log("test")
+    findCarPark(carParkLayer)
+    
+
+    }
 
 
 
