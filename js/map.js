@@ -46,6 +46,70 @@ function resolve_carpark_number(data, carpark_number){
 
 
 
+
+
+function percentage_to_icon(percentange){
+
+    let icon = ""
+
+    if(percentage===100){
+
+        icon="images/full_100.png"
+
+    }else if(percentange >= 90 && percentange < 100){
+
+        icon="images/full_90.png"
+
+    }else if(percentange >= 80 && percentange < 90){
+
+        icon="images/full_80.png"
+        
+    }else if(percentange >= 70 && percentange < 80){
+
+        icon="images/full_70.png"
+        
+    }else if(percentange >= 60 && percentange < 70){
+
+        icon="images/full_60.png"
+        
+    }else if(percentange >= 50 && percentange < 60){
+
+        icon="images/full_50.png"
+        
+    }else if(percentange >= 40 && percentange < 50){
+
+        icon="images/full_40.png"
+        
+    }else if(percentange >= 30 && percentange < 40){
+
+        icon="images/full_30.png"
+        
+    }else if(percentange >= 20 && percentange < 30){
+
+        icon="images/full_20.png"
+        
+    }else if(percentange >= 10 && percentange < 20){
+
+        icon="images/full_10.png"
+        
+    }else if(percentange >= 0 && percentange < 10){
+
+        icon="images/full_0.png"
+        
+    }else{
+
+        icon="images/full_null.png"
+    }
+
+
+    return icon
+
+
+}
+
+
+
+
 async function findCarPark(){
 
     
@@ -63,34 +127,36 @@ async function findCarPark(){
         
         let display_status =  {
                                 "available_lots" : "No information found",
-                                "total_lots": "No information found"
+                                "total_lots": "No information found",
+                                "percentage_lots":0
                                 }
         if (status){
        
             display_status = {
-                                "available_lots":status.carpark_info[0].lots_available,
-                                "total_lots":status.carpark_info[0].total_lots
+                                "available_lots":parseInt(status.carpark_info[0].lots_available),
+                                "total_lots":parseInt(status.carpark_info[0].total_lots),
+                                "percentage_lots":(status.carpark_info[0].lots_available/status.carpark_info[0].total_lots)*100
                                 }
         }
 
         let lat = hdb_json_info.x_coord
         let lng = hdb_json_info.y_coord
-        // console.log(lat, lng)
-
-        var LeafIcon = L.Icon.extend({
-            options: {
-               
-                iconSize:     [60, 70],
+     
+        
+        var modified_icon = L.icon({
+                iconUrl:      percentage_to_icon(display_status["percentage_lots"]),
+                iconSize:     [80, 80],
                 shadowSize:   [0, 0],
-                iconAnchor:   [15, 70],
+                iconAnchor:   [27, 75],
                 shadowAnchor: [0, 0],
                 popupAnchor:  [0, -60]
-            }
-        });
 
-        var greenIcon = new LeafIcon({iconUrl: 'images/full_100.png'})
+            });
 
-        let carParkMarker = L.marker(svy21ToWgs84(lng, lat),{"icon":greenIcon})
+
+
+
+        let carParkMarker = L.marker(svy21ToWgs84(lng, lat),{"icon":modified_icon})
 
         carParkMarker.bindPopup(`<h3 class="carpark_number">${hdb_json_info.address}</h3> <p> Carpark Number: ${hdb_json_info.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Total Lots: ${display_status["total_lots"]} </p><button class="refresh-btn">Refresh</button>`) //Check if refresh-btn attr should be class or id
        
