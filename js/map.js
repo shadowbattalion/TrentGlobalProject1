@@ -76,7 +76,21 @@ async function findCarPark(){
         let lat = hdb_json_info.x_coord
         let lng = hdb_json_info.y_coord
         // console.log(lat, lng)
-        let carParkMarker = L.circle(svy21ToWgs84(lng, lat),{'color':'#00ff00'})
+
+        var LeafIcon = L.Icon.extend({
+            options: {
+               
+                iconSize:     [80, 90],
+                shadowSize:   [0, 0],
+                iconAnchor:   [0, 80],
+                shadowAnchor: [0, 0],
+                popupAnchor:  [0, 0]
+            }
+        });
+
+        var greenIcon = new LeafIcon({iconUrl: 'leaf-green.png'})
+
+        let carParkMarker = L.marker(svy21ToWgs84(lng, lat),{"icon":greenIcon})
 
         carParkMarker.bindPopup(`<h3 class="carpark_number">${hdb_json_info.address}</h3> <p> Carpark Number: ${hdb_json_info.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Total Lots: ${display_status["total_lots"]} </p><button class="refresh-btn">Refresh</button>`) //Check if refresh-btn attr should be class or id
        
