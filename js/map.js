@@ -80,15 +80,15 @@ async function findCarPark(){
         var LeafIcon = L.Icon.extend({
             options: {
                
-                iconSize:     [80, 90],
+                iconSize:     [60, 70],
                 shadowSize:   [0, 0],
-                iconAnchor:   [0, 80],
+                iconAnchor:   [15, 70],
                 shadowAnchor: [0, 0],
-                popupAnchor:  [0, 0]
+                popupAnchor:  [0, -60]
             }
         });
 
-        var greenIcon = new LeafIcon({iconUrl: 'leaf-green.png'})
+        var greenIcon = new LeafIcon({iconUrl: 'images/full_100.png'})
 
         let carParkMarker = L.marker(svy21ToWgs84(lng, lat),{"icon":greenIcon})
 
