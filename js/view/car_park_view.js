@@ -1,11 +1,11 @@
-async function ggenerateCarParkLayer(car_park_list,car_park_status_list,car_park_layers){
+async function generateCarParkLayer(car_park_list,car_park_status_list,car_park_layer, map){
 
-    car_park_layers.clearLayers()
-
+    car_park_layer.clearLayers()
+    // console.log(car_park_list.result.records)
 
     let carParkMarkerCluster = L.markerClusterGroup()
-    for(let car_park of car_park_list){
-        
+    for(let car_park of car_park_list.result.records){
+        console.log(car_park.car_park_no)
         let status = resolve_carpark_number(car_park_status_list, car_park.car_park_no)
         // console.log(status)
         
@@ -56,7 +56,8 @@ async function ggenerateCarParkLayer(car_park_list,car_park_status_list,car_park
 
     }
 
-    carParkMarkerCluster.addTo(carParkLayer)
-    carParkLayer.addTo(map)
+    carParkMarkerCluster.addTo(car_park_layer)
+    
+    car_park_layer.addTo(map)
 
 }

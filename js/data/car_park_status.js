@@ -12,7 +12,8 @@ function resolve_carpark_number(car_park_status_list, car_park_no){
     let chosen_carpak_status={}
 
     for (let status of car_park_status_list.items[0].carpark_data){
- 
+        
+        // console.log(status)
         if(status.car_park_no === car_park_no){
             chosen_carpak_status = status
             break
