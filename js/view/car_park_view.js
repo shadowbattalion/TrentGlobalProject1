@@ -1,9 +1,9 @@
-async function generateCarParkLayer(car_park_list,car_park_status_list, layers, map){
+async function generateCarParkLayer(car_park_list,car_park_status_list,car_park_layer, map){
 
-    layers[3].clearLayers()
+    car_park_layer.clearLayers()
     // console.log(car_park_list.result.records)
 
-    let carParkMarkerCluster = L.markerClusterGroup()
+    let marker_cluster = L.markerClusterGroup()
     for(let car_park of car_park_list.result.records){
        
         let status = resolve_carpark_number(car_park_status_list, car_park.car_park_no)
@@ -37,21 +37,20 @@ async function generateCarParkLayer(car_park_list,car_park_status_list, layers, 
 
 
                 
-                let carParkMarker = L.marker(svy21ToWgs84(lng, lat),{"icon":modified_icon})
+                let marker = L.marker(svy21ToWgs84(lng, lat),{"icon":modified_icon})
 
-                carParkMarker.bindPopup(`<h3 id="carpark_number">${car_park.address}</h3> <p> Carpark Number: ${car_park.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Occupied Lots: ${display_status["occupied_lots"]} <br> Total Lots: ${display_status["total_lots"]} <br> Last updated: ${last_updated_duration(display_status["last_updated"])} <br> Car Park Type: ${display_status["car_park_type"]}  <br> <button onclick="refresh()">Refresh</button> </p>`) //Check if refresh-btn attr should be class or id
+                marker.bindPopup(`<h3 id="carpark_number">${car_park.address}</h3> <p> Carpark Number: ${car_park.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Occupied Lots: ${display_status["occupied_lots"]} <br> Total Lots: ${display_status["total_lots"]} <br> Last updated: ${last_updated_duration(display_status["last_updated"])} <br> Car Park Type: ${display_status["car_park_type"]}  <br> <button onclick="refresh()">Refresh</button> </p>`) //Check if refresh-btn attr should be class or id
                 
 
-                carParkMarker.addTo(carParkMarkerCluster)
+                marker.addTo(marker_cluster)
                 
             }
         }
     }
 
-    carParkMarkerCluster.addTo(layers[3])
+    marker_cluster.addTo(car_park_layer)
     
-    
-    layers[3].addTo(map)
+    car_park_layer.addTo(map)
 
 }
 
