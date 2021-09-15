@@ -33,19 +33,7 @@ function initMap(){
 
 
 
-// findCarPark(carParkLayer)
 
-// function refresh(){
-
-//     // let status = await carParkStatus(hdb_json_info.car_park_no)
-//     // carParkMarker.bindPopup(`<p>${hdb_json_info.car_park_no} ${hdb_json_info.address} ${status}</p><button class="refresh-btn">Refresh</button>`) //Check if refresh-btn attr should be class or id
-    
-//     // let carpark_number = document.querySelector(".carpark_number")
-//     // console.log("test")
-//     findCarPark(carParkLayer)
-    
-
-//     }
 
     
 
