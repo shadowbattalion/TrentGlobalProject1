@@ -20,28 +20,19 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
                                     "occupied_lots": parseInt(status.carpark_info[i].total_lots) - parseInt(status.carpark_info[i].lots_available),
                                     "percentage_lots":((status.carpark_info[i].total_lots-status.carpark_info[i].lots_available)/status.carpark_info[i].total_lots)*100,
                                     "last_updated":status.update_datetime,
-                                    "car_park_type":status.carpark_info[i].lot_type
+                                    "lot_type":status.carpark_info[i].lot_type
                                     }
                     
 
                 let lat = car_park.x_coord
                 let lng = car_park.y_coord
                 
-                // console.log(display_status["percentage_lots"])
-                var modified_icon = L.icon({
-                        iconUrl:      percentage_to_icon(display_status["percentage_lots"]),
-                        iconSize:     [80, 80],
-                        iconAnchor:   [27, 75],
-                        popupAnchor:  [0, -60]
-
-                    });
-
-
+                let modified_icon = icon_selector(display_status["percentage_lots"], display_status["lot_type"])
 
                     
                 let marker = L.marker(svy21ToWgs84(lng, lat),{"icon":modified_icon})
 
-                marker.bindPopup(`<h3 id="carpark_number">${car_park.address}</h3> <p> Carpark Number: ${car_park.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Occupied Lots: ${display_status["occupied_lots"]} <br> Total Lots: ${display_status["total_lots"]} <br> Last updated: ${last_updated_duration(display_status["last_updated"])} <br> Car Park Type: ${display_status["car_park_type"]}  <br> <button onclick="refresh()">Refresh</button> </p>`) //Check if refresh-btn attr should be class or id
+                marker.bindPopup(`<h3 id="carpark_number">${car_park.address}</h3> <p> Carpark Number: ${car_park.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Occupied Lots: ${display_status["occupied_lots"]} <br> Total Lots: ${display_status["total_lots"]} <br> Last updated: ${last_updated_duration(display_status["last_updated"])} <br> Car Park Type: ${display_status["lot_type"]}  <br> <button onclick="refresh()">Refresh</button> </p>`) //Check if refresh-btn attr should be class or id
                     
 
                 marker.addTo(marker_cluster)
@@ -102,65 +93,40 @@ function last_updated_duration(datetime){
 
 
 
-function percentage_to_icon(percentage){
+function icon_selector(percentage_lots, lot_type){
 
-    let icon = ""
+    let percentage_string = 0
+    let lot_type_string = ""
+    
+    // console.log(percentage_lots && percentage_lots>=0)
+    if(percentage_lots>=0 && percentage_lots!=NaN){
+        // console.log(percentage_lots)
+        percentages=['0','1','2','3','4','5','6','7','8','9','10']
+        console.log(percentage_lots/10)
+        percentage_string=[percentage_lots/10]
 
- 
-
-    if(percentage===100){
-
-        icon="images/full_100.png"
-
-    }else if(percentage >= 90 && percentage < 100){
-
-        icon="images/full_90.png"
-
-    }else if(percentage >= 80 && percentage < 90){
-
-        icon="images/full_80.png"
-            
-    }else if(percentage >= 70 && percentage < 80){
-
-        icon="images/full_70.png"
-            
-    }else if(percentage >= 60 && percentage < 70){
-
-        icon="images/full_60.png"
-            
-    }else if(percentage >= 50 && percentage < 60){
-
-        icon="images/full_50.png"
-            
-    }else if(percentage >= 40 && percentage < 50){
-
-        icon="images/full_40.png"
-            
-    }else if(percentage >= 30 && percentage < 40){
-
-        icon="images/full_30.png"
-            
-    }else if(percentage >= 20 && percentage < 30){
-
-        icon="images/full_20.png"
-            
-    }else if(percentage >= 10 && percentage < 20){
-
-        icon="images/full_10.png"
-            
-    }else if(percentage >= 0 && percentage < 10){
-
-        icon="images/full_0.png"
             
     }else{
 
-        icon="images/full_null.png" // No info because certain car parks returns a negative percentage or a NaN
+        percentage_string="null" // No info because certain car parks returns a negative percentage or a NaN
 
     }
 
     
 
-    return icon
+    let png_file_string = `images/full_${percentage_string}_type_${lot_type_string}.png`
+
+
+    // console.log(display_status["percentage_lots"])
+    let modified_icon = L.icon({
+        iconUrl:      "images/full_null.png",
+        iconSize:     [80, 80],
+        iconAnchor:   [27, 75],
+        popupAnchor:  [0, -60]
+
+    })    
+
+    return modified_icon
 
 
 }
