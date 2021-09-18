@@ -28,7 +28,7 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
                 let lng = car_park.y_coord
                 
                 let modified_icon = icon_selector(display_status["percentage_lots"], display_status["lot_type"])
-
+                console.log(display_status["lot_type"])
                     
                 let marker = L.marker(svy21ToWgs84(lng, lat),{"icon":modified_icon})
 
@@ -95,15 +95,15 @@ function last_updated_duration(datetime){
 
 function icon_selector(percentage_lots, lot_type){
 
-    let percentage_string = 0
+    let percentage_string = ""
     let lot_type_string = ""
     
     // console.log(percentage_lots && percentage_lots>=0)
     if(percentage_lots>=0 && percentage_lots!=NaN){
         // console.log(percentage_lots)
         percentages=['0','1','2','3','4','5','6','7','8','9','10']
-        console.log(percentage_lots/10)
-        percentage_string=[percentage_lots/10]
+        // console.log(Math.floor(percentage_lots/10))
+        percentage_string=[Math.floor(percentage_lots/10)]
 
             
     }else{
@@ -112,14 +112,18 @@ function icon_selector(percentage_lots, lot_type){
 
     }
 
-    
+    lot_type_string = {
+        "C":"car",
+        "Y":"motor",
+        "H":"lorry"
+    }
 
-    let png_file_string = `images/full_${percentage_string}_type_${lot_type_string}.png`
+    let png_file_string = `images/full_${percentage_string}_type_${lot_type_string[lot_type]}.png`
 
-
+    console.log(`images/full_${percentage_string}_type_${lot_type_string[lot_type]}.png`)
     // console.log(display_status["percentage_lots"])
     let modified_icon = L.icon({
-        iconUrl:      "images/full_null.png",
+        iconUrl:      png_file_string,
         iconSize:     [80, 80],
         iconAnchor:   [27, 75],
         popupAnchor:  [0, -60]
