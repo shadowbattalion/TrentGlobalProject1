@@ -1,7 +1,5 @@
 async function generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map){
-
-    
-    
+ 
     car_park_layer.clearLayers()
     // console.log(car_park_list.result.records)
 
@@ -28,8 +26,7 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
                 let lng = car_park.y_coord
                 
                 let modified_icon = icon_selector(display_status["percentage_lots"], display_status["lot_type"])
-                console.log(display_status["lot_type"])
-                    
+                
                 let marker = L.marker(svy21ToWgs84(lng, lat),{"icon":modified_icon})
 
                 marker.bindPopup(`<h3 id="carpark_number">${car_park.address}</h3> <p> Carpark Number: ${car_park.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Occupied Lots: ${display_status["occupied_lots"]} <br> Total Lots: ${display_status["total_lots"]} <br> Last updated: ${last_updated_duration(display_status["last_updated"])} <br> Car Park Type: ${display_status["lot_type"]}  <br> <button onclick="refresh()">Refresh</button> </p>`) //Check if refresh-btn attr should be class or id
@@ -114,14 +111,13 @@ function icon_selector(percentage_lots, lot_type){
 
     lot_type_string = {
         "C":"car",
-        "Y":"motor",
+        "Y":"bike",
         "H":"lorry"
     }
 
     let png_file_string = `images/full_${percentage_string}_type_${lot_type_string[lot_type]}.png`
 
-    console.log(`images/full_${percentage_string}_type_${lot_type_string[lot_type]}.png`)
-    // console.log(display_status["percentage_lots"])
+   
     let modified_icon = L.icon({
         iconUrl:      png_file_string,
         iconSize:     [80, 80],
