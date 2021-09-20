@@ -1,5 +1,10 @@
 let timer_id = 0
 
+function stopCallingApi(){
+
+  clearInterval(timer_id)
+
+  }
 
 async function addSearchResults(data, places_layer, car_park_layer, map){
 
@@ -31,28 +36,15 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
         map.flyTo(coordinate, 18)
         marker.openPopup()
 
-        // setTimeout(function(){},4000)
-
-        // let area = map.getBounds()
-        // let top_right = area.getNorthEast()
-        // let bottom_left = area.getSouthWest()
-
-        // setTimeout(async function(){ 
-        //   let area = map.getBounds()
-        //   top_right = area.getNorthEast()
-        //   bottom_left = area.getSouthWest()
-        //   // console.log(top_right, bottom_left)
-        // }, 3000)
-
+       
         //carParkLayer
         
         let car_park_status_list= await carParkStatus()
         console.log(coordinate)
+        stopCallingApi()
         generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate)
-        let i=0
+        
         timer_id = setInterval(async function(){
-                                  console.log(i)
-                                  i++
                                   let car_park_status_list= await carParkStatus()
                                   console.log(coordinate)
                                   generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate)
@@ -79,15 +71,4 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
   
   
   
-  }
-
-
-
-
-
-
-function stopCallingApi(){
-
-  clearInterval(timer_id)
-
   }

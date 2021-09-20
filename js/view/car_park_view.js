@@ -22,7 +22,7 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
                                     }
                     
                 
-                const RANGE= 0.01
+                const RANGE= 0.0025
                 let coordinate_north=coordinate[0]+RANGE
                 let coordinate_south=coordinate[0]-RANGE
                 let coordinate_east=coordinate[1]+RANGE
@@ -43,7 +43,7 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
                     flag = flag + 1
                 }
 
-                // console.log(flag)    
+                  
 
                 if(flag === 2){
                     
