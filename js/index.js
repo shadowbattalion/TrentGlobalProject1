@@ -13,20 +13,8 @@ async function main(){
                 let center = map.getBounds().getCenter()
                 let data = await searchLocations(center.lat, center.lng, query)
             
-                addSearchResults(data, places_layer, map)
+                addSearchResults(data, places_layer, car_park_layer, map)
 
-
-
-                //carParkLayer
-                let car_park_list = await findCarPark()
-                let car_park_status_list= await carParkStatus()
-                generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map)
-                let i=0
-                setInterval(async function(){
-                    console.log(i)
-                    i++
-                    let car_park_status_list= await carParkStatus()
-                    generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map)}, 60000)
 
 
 

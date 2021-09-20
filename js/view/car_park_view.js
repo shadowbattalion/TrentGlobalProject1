@@ -1,4 +1,4 @@
-async function generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map){
+async function generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate){
  
     car_park_layer.clearLayers()
     // console.log(car_park_list.result.records)
@@ -21,18 +21,41 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
                                     "lot_type":status.carpark_info[i].lot_type
                                     }
                     
-
-                let lat = car_park.x_coord
-                let lng = car_park.y_coord
                 
-                let modified_icon = icon_selector(display_status["percentage_lots"], display_status["lot_type"])
-                
-                let marker = L.marker(svy21ToWgs84(lng, lat),{"icon":modified_icon})
+                const RANGE= 0.01
+                let coordinate_north=coordinate[0]+RANGE
+                let coordinate_south=coordinate[0]-RANGE
+                let coordinate_east=coordinate[1]+RANGE
+                let coordinate_west=coordinate[1]-RANGE
 
-                marker.bindPopup(`<h3 id="carpark_number">${car_park.address}</h3> <p> Carpark Number: ${car_park.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Occupied Lots: ${display_status["occupied_lots"]} <br> Total Lots: ${display_status["total_lots"]} <br> Last updated: ${last_updated_duration(display_status["last_updated"])} <br> Car Park Type: ${display_status["lot_type"]}  <br> <button onclick="refresh()">Refresh</button> </p>`) //Check if refresh-btn attr should be class or id
+                let lat_lng = svy21ToWgs84(car_park.y_coord, car_park.x_coord)//lat:lat_lng[0] lng:lat_lng[1]
+            
+                let flag = 0
+                
+                          
+                if(lat_lng[0] >= coordinate_south && lat_lng[0] <= coordinate_north){
                     
+                    flag = flag + 1
+                }
 
-                marker.addTo(marker_cluster)
+               
+                if(lat_lng[1] >= coordinate_west && lat_lng[1] <= coordinate_east){
+                    flag = flag + 1
+                }
+
+                // console.log(flag)    
+
+                if(flag === 2){
+                    
+                    let modified_icon = icon_selector(display_status["percentage_lots"], display_status["lot_type"])
+                   
+                    let marker = L.marker(lat_lng,{"icon":modified_icon})
+
+                    marker.bindPopup(`<h3 id="carpark_number">${car_park.address}</h3> <p> Carpark Number: ${car_park.car_park_no} <br> Available Lots: ${display_status["available_lots"]} <br> Occupied Lots: ${display_status["occupied_lots"]} <br> Total Lots: ${display_status["total_lots"]} <br> Last updated: ${last_updated_duration(display_status["last_updated"])} <br> Car Park Type: ${display_status["lot_type"]}  <br> <button onclick="refresh()">Refresh</button> </p>`) //Check if refresh-btn attr should be class or id
+                        
+
+                    marker.addTo(marker_cluster)
+                }
                     
             }
         }
