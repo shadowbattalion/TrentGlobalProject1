@@ -74,11 +74,16 @@ Further user actions
 <br>
 	
 ### Structure
-<p>Linear Structure</p>	
-	
+<p>Linear Structure</p>
+<p>Information will be organised in a way that there is a minimal obstruction to the map as much as possible</p>
+		
 <br>
 <br>
 	
 ### Skeleton
+<p>Inspiration for the design is taken from this website https://www.openstreetmap.org/ . It fits the idea of simplicity and fast interaction for users in order to get the information at a quick glance</p>
 	
+	
+	
+
 	
