@@ -1,7 +1,7 @@
 let timer_id = 0
 
 function stopCallingApi(){
-
+  
   clearInterval(timer_id)
 
   }
@@ -48,8 +48,9 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
                                   let car_park_status_list= await carParkStatus()
                                   console.log(coordinate)
                                   generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate)
+                        
                                   }, 20000)
-       
+        
         
   
       })
