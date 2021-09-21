@@ -43,8 +43,10 @@
 	* The program will get the coordinates and bring the user to the specified location on the map
 	* Car park status will be retrieved and will be marked on the map as well
 	* Car park markers will be located nearby the location of the chosen place
-*Output
-	*User will be able to obtain the information of the place chosen and the car parks surrounding the place
+
+* Output
+	* User will be able to obtain the information of the place chosen and the car parks surrounding the place
+
 <br>
 	
 Further user actions
