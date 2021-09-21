@@ -15,7 +15,7 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
     document.querySelector("#change-size-1").addEventListener('click', function(){
 
         range = parseFloat(document.querySelector("#change-size-1").value)
-        console.log(range)
+        // console.log(range)
         generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
 
     })
@@ -23,7 +23,7 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
     document.querySelector("#change-size-2").addEventListener('click', function(){
 
         range = parseFloat(document.querySelector("#change-size-2").value)
-        console.log(range)
+        // console.log(range)
         generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
 
     })
