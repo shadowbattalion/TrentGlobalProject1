@@ -1,7 +1,7 @@
 # TrentGlobalProject1
 ## UI/UX
  ### Stratergy
-  #### User Stories
+  #### <ins> User Stories </ins>
     
   <p> As a **driver**
       I want to **find out the next best place to park my vehicle nearby**
@@ -19,4 +19,12 @@
       I want to **check if the the heavy vehicles park is full or available before reaching the destination**
       So that **I can plan my travel. Not many places have heavy vehicles section** </p>
 
-  #### Acceptance Criteria
+  #### <ins> Acceptance Criteria <ins>
+  
+  
+  
+  
+  ### Scope
+  #### <ins> Functional requirements</ins>
+ 
+  #### <ins> Non-functional requirements</ins>
