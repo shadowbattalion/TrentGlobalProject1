@@ -68,3 +68,17 @@ Further user actions
 * Not applicable:
   * Privacy: No user information will be needed
   * Security: Security is based on the server that provides the API. 
+	
+
+<br>
+<br>
+	
+### Structure
+<p>Linear Structure</p>	
+	
+<br>
+<br>
+	
+### Skeleton
+	
+	
