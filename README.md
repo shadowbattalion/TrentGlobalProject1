@@ -26,5 +26,12 @@
   
   ### Scope
   #### <ins> Functional requirements</ins>
+       * Performance: the markers on the map should load fast and the user should be able to get the status of every car park in the area at a glance.
+       * Mobile responsiveness: Should look clear and easy to read as user might need to decide the next best car park location while in the car (while stopping somewhere)
+       * Localization criteria: Only applicable in Singapore as the car park information are taken from the local government API
+       * Accessibility criteria: Targer users are fit drivers
+       * Not applicable:
+                      * Privacy: No user informaiton will be needed
+                      * Security: Security is based on the server that provides the API. 
  
   #### <ins> Non-functional requirements</ins>
