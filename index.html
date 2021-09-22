@@ -4,6 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
     <!-- Leaflet CSS -->
@@ -13,30 +14,29 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"/>
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <title>Hello, world!</title>
+    <title>Car Park Finder</title>
   </head>
   <body>
+    
 
-    <div class="container-fluid">
+
+    <main id="container">     
       <div id="map">
       </div>
       <button id="change-size-1" value="0.0025" >0.0025</button>
       <button id="change-size-2" value="0.01" >0.01</button>
       <div id="search-container">
+        <div>
+          <img id="search-bar-icon" src="images/search_bar_icon.png">
+        </div> 
         <input type="text" id="search-input"/>
-        <button id="search-btn">Search</button>
-        <div id="search-results"></div>
+        <button id="search-btn">Search</button>  
       </div>
 
-    </div>
-
+    </main>
     
 
-
-
-
-
-    <!-- Bootstrap Bundle with Popper -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <!-- Axios -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.2/axios.min.js" integrity="sha512-SRGf0XYPMWMGCYQg7sQsW2/FMWq0L/mYhwxDraoUOeZ9sWO2/+R48bcXZaWOpwjCQbyRWP24zsbtqQxJXU1W2w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -55,5 +55,6 @@
     <script src="js/svy21.js"></script>
     <script src="js/map.js"></script>
     <script src="js/index.js"></script>
+   
   </body>
 </html>
