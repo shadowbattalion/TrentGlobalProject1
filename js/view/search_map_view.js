@@ -11,7 +11,7 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
 
     let car_park_list = await findCarPark()
   
-    let search_result_element =  document.querySelector("#search-results")
+    let search_result_element =  document.querySelector(".search-results")
     search_result_element.innerHTML = ""
   
     

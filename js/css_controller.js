@@ -8,7 +8,10 @@ search_icon.addEventListener('click', function(){
     search_button.classList.toggle("search-btn-expand")
     let search_input =  document.querySelector(".search-input")
     search_input.classList.toggle("search-input-expand")
-  
+    let search_results =  document.querySelector(".search-results")
+    search_results.classList.toggle("search-results-expand")
+    let search_container =  document.querySelector(".search-container")
+    search_container.classList.toggle("search-container-expand")
 
 
 
