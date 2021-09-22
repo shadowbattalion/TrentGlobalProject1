@@ -7,9 +7,9 @@ async function main(){
         // places_layer.addTo(map)
         window.addEventListener('DOMContentLoaded', async function(){
            
-            document.querySelector('#search-btn').addEventListener('click', async function(){
+            document.querySelector('.search-btn').addEventListener('click', async function(){
                  //foursquare layer  
-                let query = document.querySelector("#search-input").value
+                let query = document.querySelector(".search-input").value
                 let center = map.getBounds().getCenter()
                 let data = await searchLocations(center.lat, center.lng, query)
             
