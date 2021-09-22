@@ -112,9 +112,9 @@
     overflow-y: auto;
     max-height:300px;
     min-width: 320px;
-    position:relative;
+    position:absolute;
     background-color: rgba(222, 222, 222, 0.82);
-    top:20px;
+    top:100px;
     right:10px;
     opacity: 0;
     visibility :hidden;
