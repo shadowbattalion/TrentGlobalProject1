@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
+
+:root {
+    --font-family: 'Comfortaa', cursive;
+    --color: #dedede;
+  }
+  
+
 #map {
     height:100vh; 
     position: relative;
@@ -65,7 +73,9 @@
 
 
 .search-btn{
-
+    font-family:var(--font-family); 
+    color:var(--color);
+    font-size: small;
     flex:1;
     background-color: #273b8a;
     opacity: 0;
@@ -83,7 +93,8 @@
 
 
 .search-input{
-
+    font-family:var(--font-family);
+    font-size: small;
     flex:2;
     border: 0px;
     outline: none;
@@ -93,7 +104,6 @@
     visibility :hidden;
 
     transition: opacity 1s ease-in-out, visibility 0.2s ease-in-out;
-
 
 
 }
@@ -130,7 +140,68 @@
   }
 
 
+
 @media (min-width:767px) {
+    .search-container{
+        
+        left:30px;
+        right:0px;
+        justify-content: flex-start;
+        
+
+        transition: width 1s ease-in-out;
+    }
+    
+    .search-container-expand{
+        width:400px;
+        
+    }
+
+    #search-icon{
+   
+        height: 120px;
+        transform: scaleX(-1);
+    
+    }
+        
+    
+    .search-group{
+        left:90px;
+        top:70px;
+        right:0px;
+        flex-direction: row-reverse;
+
+    }
+
+    .search-group-expand{
+        width:400px;
+      }
+
+    .search-btn{
+        font-size: medium;
+        margin-left:10px;
+    }
+
+    .search-input{
+        font-size: medium;
+    }
+
+    .search-results {
+        top:120px;
+        left: 90px;
+        right:0px;
+
+    }
+
+
+    .search-results-expand{
+        width:400px;
+    }
+
+}
+
+
+@media (min-width:1200px) {
     .search-container{
         
         left:30px;
@@ -148,7 +219,7 @@
     #search-icon{
    
         height: 150px;
-        transform: scaleX(-1);
+    
     
     }
     
@@ -157,16 +228,33 @@
     .search-group{
         left:110px;
         top:90px;
-        right:0px;
-        width:400px;
         height: 60px;
 
     }
 
+    .search-group-expand{
+        width:500px;
+      }
+
+    
+    .search-btn{
+        font-size: large;
+        margin-left:10px;
+    }
+
+    .search-input{
+        font-size: large;
+    }
+
     .search-results {
-        left:10px;
+        top:150px;
+        left:110px;
         right:0px;
 
+    }
+
+    .search-results-expand{
+        width:500px;
     }
 
 }
