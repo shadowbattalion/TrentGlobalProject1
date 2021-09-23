@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap');
-
 :root {
     --font-family: 'Comfortaa', cursive;
     --color: #dedede;
@@ -138,6 +136,26 @@
     opacity: 1;
     visibility: visible;
   }
+
+
+.search-result .para{
+
+    font-family: var(--font-family);
+
+
+}
+
+.search-result .line{
+
+    background-color:#273b8a;
+    width:auto;
+    height:70px;
+  
+
+}
+
+
+
 
 
 

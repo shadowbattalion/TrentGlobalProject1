@@ -23,9 +23,7 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
   
   
       let result_element = document.createElement('div')
-      result_element.className="search-result"
-      result_element.onclick = stopCallingApi()
-      result_element.innerHTML=each_venue.name
+      result_element.innerHTML=`<div class="search-result" onClick="stopCallingApi()"><p class="para">${each_venue.name}</p><div class="line"></div></div>`
   
   
       result_element.addEventListener("click", async function(){
