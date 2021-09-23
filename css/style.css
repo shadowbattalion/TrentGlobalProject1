@@ -121,7 +121,7 @@
     margin-top: 10px;
     overflow-y: auto;
     max-height:300px;
-    min-width: 320px;
+    width: 320px;
     position:absolute;
     background-color: rgba(222, 222, 222, 0.82);
     top:100px;
