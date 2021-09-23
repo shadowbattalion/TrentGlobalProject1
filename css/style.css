@@ -175,7 +175,7 @@
     top:60%;
     background-color: var(--secondary-color);
     height:175px;
-    width:130px;
+    width:100px;
     border:2px solid black;
     padding: 0px 5px 5px 5px;
 
@@ -191,7 +191,7 @@
 #radius-btn-label{
     font-family: var(--font-family);
     font-size: 15px;
-    margin-left:30px;
+    margin-left:20px;
 
 
     
@@ -258,6 +258,32 @@
         width:400px;
     }
 
+    /* radius buttons */
+    #btn-set{
+        left:10px;
+        top:60%;
+        height:250px;
+        width:125px;
+    }
+    
+    .radius-btn{
+        margin:15px 0px;
+        background-color: var(--primary-color);
+        color:var(--secondary-color);
+        height: 200px;
+        font-size: 20px;
+    
+    }
+    
+    #radius-btn-label{
+        font-family: var(--font-family);
+        font-size: 20px;
+        margin-left:21px;
+        margin-top: 10px;
+    
+    
+        
+    }
 }
 
 
@@ -317,4 +343,10 @@
         width:500px;
     }
 
+    /* radius buttons */
+    /* #btn-set{
+
+
+        
+    } */
 }
