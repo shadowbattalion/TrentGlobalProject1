@@ -12,18 +12,26 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
     console.log("test")
     generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
 
-    document.querySelector("#change-size-1").addEventListener('click', function(){
+    document.querySelector("#change-radius-1").addEventListener('click', function(){
 
-        range = parseFloat(document.querySelector("#change-size-1").value)
-        // console.log(range)
+        range = parseFloat(document.querySelector("#change-radius-1").value)
+       
         generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
 
     })
 
-    document.querySelector("#change-size-2").addEventListener('click', function(){
+    document.querySelector("#change-radius-2").addEventListener('click', function(){
 
-        range = parseFloat(document.querySelector("#change-size-2").value)
-        // console.log(range)
+        range = parseFloat(document.querySelector("#change-radius-2").value)
+        
+        generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
+
+    })
+
+    document.querySelector("#change-radius-3").addEventListener('click', function(){
+
+        range = parseFloat(document.querySelector("#change-radius-3").value)
+        
         generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
 
     })
