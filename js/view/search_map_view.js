@@ -7,7 +7,53 @@ function stopCallingApi(){
   
   clearInterval(timer_id)
 
-  }
+}
+
+
+function search_result_display_html_string(each_venue){
+
+    
+    let venue_name = each_venue.name?each_venue.name:""
+    let address = each_venue.location.address?each_venue.location.address:""
+    // let location = 
+
+    return `
+    <style>
+      .search-result .para{
+
+        font-family: var(--font-family);
+        /* font-size: 20px; */
+        margin:30px;
+    
+  
+      }
+  
+      .search-result .para .location-name{
+  
+        text-decoration:none;
+        color:black;
+  
+      }
+  
+      .search-result .line{
+      
+          background-image:linear-gradient(90deg,transparent, var(--primary-color),transparent);
+          width:auto;
+          height:1px;
+        
+      
+      }
+            
+      </style>
+      <div class="search-result" onClick="stopCallingApi()">
+        <p class="para">
+          <a class="location-name" href="#">${venue_name} <br> ${address}</a>
+        </p>
+        <div class="line"></div>
+      </div>`
+}
+
+
 
 async function addSearchResults(data, places_layer, car_park_layer, map){
 
@@ -26,10 +72,7 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
   
   
       let result_element = document.createElement('div')
-      let venue_name = each_venue.name?each_venue.name:""
-      let address = each_venue.location.address?each_venue.location.address:""
-      let location = 
-      result_element.innerHTML=`<div class="search-result" onClick="stopCallingApi()"><p class="para"><a class="location-name" href="#">${venue_name} <br> ${address}</a></p><div class="line"></div></div>`
+      result_element.innerHTML = search_result_display_html_string(each_venue)  
   
 
 
@@ -97,3 +140,5 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
   
   
   }
+
+  
