@@ -27,7 +27,7 @@ function search_result_display_html_string(each_venue){
     <style>
       .search-result p{
 
-        font-family: var(--font-family);
+        font-family: var(--font-family-main);
         margin:10px;
     
   
@@ -59,11 +59,11 @@ function search_result_display_html_string(each_venue){
       }
 
   
-      .search-result .line{
+      .line{
       
           background-image:linear-gradient(90deg,transparent, var(--primary-color),transparent);
           width:auto;
-          height:1px;
+          height:2px;
         
       
       }
@@ -98,12 +98,23 @@ function location_bindpopup_display_html_string(each_venue){
 
   return `
   <style>
+  #title{
+    font-family: var(--font-family-main);
+
+  }
+
+  #body{
+    font-family: var(--font-family-sub);
+
+  }
+  
   </style>
   <div class="card" style="width: auto;">
     <div class="card-body">
-      <h5 class="card-title">${venue_name}</h5>
-      <h6 class="card-subtitle mb-2 text-muted">${address}</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      <h5 id="title" class="card-title">${venue_name}</h5>
+      <div class="line my-2"></div>
+      <h6 class="body" class="card-subtitle mb-2">${address.join(" ")}</h6>
+      <p class="body" class="card-text">${location_description.join(" ")}</p>
     </div>
   </div>
   
@@ -127,6 +138,7 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
   
     for(let each_venue of data.response.venues){
       let coordinate = [each_venue.location.lat, each_venue.location.lng]
+      let custom_icon = 
       let marker = L.marker(coordinate)
       
   

@@ -1,5 +1,6 @@
 :root {
-    --font-family: 'Comfortaa', cursive;
+    --font-family-main: 'Comfortaa', cursive;
+    --font-family-sub: 'Montserrat', sans-serif;
     --primary-color: #273b8a;
     --secondary-color: #dedede;
   }
@@ -72,7 +73,7 @@
 
 
 .search-btn{
-    font-family:var(--font-family); 
+    font-family:var(--font-family-main); 
     color:var(--secondary-color);
     font-size: small;
     flex:1;
@@ -92,7 +93,7 @@
 
 
 .search-input{
-    font-family:var(--font-family);
+    font-family:var(--font-family-main);
     font-size: small;
     flex:2;
     border: 0px;
@@ -166,7 +167,7 @@
 }
 
 #radius-btn-label{
-    font-family: var(--font-family);
+    font-family: var(--font-family-main);
     font-size: 15px;
     margin-left:20px;
 
@@ -253,7 +254,7 @@
     }
     
     #radius-btn-label{
-        font-family: var(--font-family);
+        font-family: var(--font-family-main);
         font-size: 20px;
         margin-left:21px;
         margin-top: 10px;
