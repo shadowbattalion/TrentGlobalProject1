@@ -19,21 +19,27 @@ function search_result_display_html_string(each_venue){
 
     return `
     <style>
-      .search-result .para{
+      .search-result p{
 
         font-family: var(--font-family);
-        /* font-size: 20px; */
         margin:30px;
     
   
       }
   
-      .search-result .para .location-name{
+      .search-result p a{
   
         text-decoration:none;
         color:black;
   
       }
+
+      .location-name-link{
+
+        font-size:15px;
+
+      }
+
   
       .search-result .line{
       
@@ -46,9 +52,16 @@ function search_result_display_html_string(each_venue){
             
       </style>
       <div class="search-result" onClick="stopCallingApi()">
-        <p class="para">
-          <a class="location-name" href="#">${venue_name} <br> ${address}</a>
+        <p>
+          <a class="location-name-link" href="#">${venue_name}</a>  
         </p>
+        <p>
+          <a class="address-link" href="#">${address}</a>    
+        </p>
+        <p>
+          <a class="description-link" href="#">${address}</a>    
+        </p>
+
         <div class="line"></div>
       </div>`
 }
