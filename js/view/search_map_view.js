@@ -138,9 +138,8 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
   
     for(let each_venue of data.response.venues){
       let coordinate = [each_venue.location.lat, each_venue.location.lng]
-      let custom_icon = 
-      let marker = L.marker(coordinate)
       
+
   
   
       let result_element = document.createElement('div')
@@ -149,8 +148,18 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
 
 
       result_element.addEventListener("click", async function(){
-
         
+        let custom_icon = each_venue.categories[0]?`${each_venue.categories[0].icon.prefix}${each_venue.categories[0].icon.suffix}`:"" // remember to add size
+        let marker = ""
+
+        if(custom_icon){
+          console.log(custom_icon)
+          marker = L.marker(coordinate)
+        }else{
+          marker = L.marker(coordinate)
+        }
+
+
         //search bar animation
         let search_group = document.querySelector(".search-group")
         search_group.classList.toggle("search-group-expand")
