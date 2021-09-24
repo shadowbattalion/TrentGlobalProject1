@@ -28,7 +28,7 @@ function search_result_display_html_string(each_venue){
       .search-result p{
 
         font-family: var(--font-family);
-        margin:30px;
+        margin:10px;
     
   
       }
@@ -84,7 +84,18 @@ function search_result_display_html_string(each_venue){
       </div>`
 }
 
+function location_bindpopup_display_html_string(each_venue){
 
+
+  return `
+  <div><h1>${each_venue.name}</h1></div>
+  `
+
+
+
+
+
+}
 
 async function addSearchResults(data, places_layer, car_park_layer, map){
 
@@ -107,8 +118,6 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
   
 
 
-     
-
       result_element.addEventListener("click", async function(){
 
         
@@ -129,7 +138,7 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
       
         
         places_layer.clearLayers()
-        marker.bindPopup(`<div><h1>${each_venue.name}</h1></div> `)
+        marker.bindPopup(location_bindpopup_display_html_string(each_venue))
         map.flyTo(coordinate, 18)
         marker.openPopup()
        
