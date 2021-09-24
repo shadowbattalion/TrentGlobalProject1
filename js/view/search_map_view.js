@@ -1,5 +1,8 @@
 let timer_id = 0
 
+
+
+
 function stopCallingApi(){
   
   clearInterval(timer_id)
@@ -25,7 +28,10 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
       let result_element = document.createElement('div')
       result_element.innerHTML=`<div class="search-result" onClick="stopCallingApi()"><p class="para"><a class="location-name" href="#">${each_venue.name}</a></p><div class="line"></div></div>`
   
-  
+
+
+     
+
       result_element.addEventListener("click", async function(){
 
         
@@ -47,10 +53,9 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
         
         places_layer.clearLayers()
         marker.bindPopup(`<div><h1>${each_venue.name}</h1></div> `)
-        marker.addTo(places_layer)
         map.flyTo(coordinate, 18)
         marker.openPopup()
-
+       
        
         //carParkLayer
         
@@ -66,12 +71,13 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
                         
                                   }, 20000)
         
+        marker.addTo(places_layer)
         
   
       })
   
   
-  
+      
       search_result_element.appendChild(result_element)
   
   

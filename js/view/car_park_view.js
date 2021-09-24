@@ -1,39 +1,45 @@
-let range =  0.0025
-
+let range =  0.0018018018 // 200 m calculations: https://www.nhc.noaa.gov/gccalc.shtml
+let car_park_search_area = 300
 
 async function generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate){
- 
+    
     let car_park_statuses = []
     for(let car_park of car_park_list.result.records){
         
         car_park_statuses.push([car_park,resolve_carpark_number(car_park_status_list, car_park.car_park_no)])
 
     } 
-    console.log("test")
+    console.log(range)
+
     generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
+
+    L.circle(coordinate,{radius:car_park_search_area}).addTo(car_park_layer)
 
     document.querySelector("#change-radius-1").addEventListener('click', function(){
 
         range = parseFloat(document.querySelector("#change-radius-1").value)
-       
+        car_park_search_area = 300
         generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
 
+        L.circle(coordinate,{radius:car_park_search_area}).addTo(car_park_layer)
     })
 
-    document.querySelector("#change-radius-2").addEventListener('click', function(){
+      document.querySelector("#change-radius-2").addEventListener('click', function(){
 
         range = parseFloat(document.querySelector("#change-radius-2").value)
         
         generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
-
+        car_park_search_area = 400
+        L.circle(coordinate,{radius:car_park_search_area}).addTo(car_park_layer)
     })
 
-    document.querySelector("#change-radius-3").addEventListener('click', function(){
+      document.querySelector("#change-radius-3").addEventListener('click', function(){
 
         range = parseFloat(document.querySelector("#change-radius-3").value)
         
         generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
-
+        car_park_search_area = 500
+        L.circle(coordinate,{radius:car_park_search_area}).addTo(car_park_layer)
     })
 
 
