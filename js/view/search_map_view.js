@@ -86,9 +86,27 @@ function search_result_display_html_string(each_venue){
 
 function location_bindpopup_display_html_string(each_venue){
 
+  let venue_name = each_venue.name?each_venue.name:""
+  let address = each_venue.location.formattedAddress?each_venue.location.formattedAddress:""
+  let descriptions = each_venue.categories?each_venue.categories:""
+  let location_description=[]
+  for(let description of descriptions){
+
+    location_description.push(description.name)
+
+  }
 
   return `
-  <div><h1>${each_venue.name}</h1></div>
+  <style>
+  </style>
+  <div class="card" style="width: auto;">
+    <div class="card-body">
+      <h5 class="card-title">${venue_name}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">${address}</h6>
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    </div>
+  </div>
+  
   `
 
 
@@ -138,8 +156,9 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
       
         
         places_layer.clearLayers()
-        marker.bindPopup(location_bindpopup_display_html_string(each_venue))
+        marker.bindPopup(location_bindpopup_display_html_string(each_venue),{closeButton: false})
         map.flyTo(coordinate, 18)
+        marker.addTo(places_layer)
         marker.openPopup()
        
        
@@ -157,7 +176,7 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
                         
                                   }, 20000)
         
-        marker.addTo(places_layer)
+        
         
   
       })
