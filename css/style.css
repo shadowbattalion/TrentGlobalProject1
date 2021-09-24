@@ -142,7 +142,7 @@
 .search-result .para{
 
     font-family: var(--font-family);
-    font-size: 20px;
+    /* font-size: 20px; */
     margin:30px;
 
 

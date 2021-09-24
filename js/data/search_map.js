@@ -14,5 +14,6 @@ async function searchLocations(lat, lng, query) {
             'query': query
         }
     })
+    console.log(response.data)
     return response.data;
 }
