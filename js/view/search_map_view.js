@@ -14,8 +14,14 @@ function search_result_display_html_string(each_venue){
 
     
     let venue_name = each_venue.name?each_venue.name:""
-    let address = each_venue.location.address?each_venue.location.address:""
-    // let location = 
+    let address = each_venue.location.formattedAddress?each_venue.location.formattedAddress:""
+    let descriptions = each_venue.categories?each_venue.categories:""
+    let location_description=[]
+    for(let description of descriptions){
+
+      location_description.push(description.name)
+
+    }
 
     return `
     <style>
@@ -36,7 +42,19 @@ function search_result_display_html_string(each_venue){
 
       .location-name-link{
 
+        font-size:17px;
+
+      }
+
+      .address-link{
+
         font-size:15px;
+
+      }
+
+      .description-link{
+
+        font-size:12px;
 
       }
 
@@ -56,10 +74,10 @@ function search_result_display_html_string(each_venue){
           <a class="location-name-link" href="#">${venue_name}</a>  
         </p>
         <p>
-          <a class="address-link" href="#">${address}</a>    
+          <a class="address-link" href="#">${address.join(" ")}</a>    
         </p>
         <p>
-          <a class="description-link" href="#">${address}</a>    
+          <a class="description-link" href="#">${location_description.join(" ")}</a>    
         </p>
 
         <div class="line"></div>
