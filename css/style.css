@@ -181,7 +181,7 @@
 @media (min-width:767px) {
     .search-container{
         
-        left:30px;
+        left:0px;
         right:0px;
         justify-content: flex-start;
         
@@ -238,7 +238,7 @@
     /* radius buttons */
     #btn-set{
         left:10px;
-        top:60%;
+        top:75%;
         height:250px;
         width:125px;
     }
@@ -323,7 +323,7 @@
     /* radius buttons */
     #btn-set{
 
-        top:40%;
+        bottom:60px;
         
     }
 }
