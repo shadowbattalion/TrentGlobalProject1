@@ -1,7 +1,8 @@
+
+//This is the function to stop all time interval of function. 
+//This is important as some data still remained in the system after 
+//the user clicks on one of the search results which will restart the function which retrieves the car park status
 let timer_id = 0
-
-
-
 
 function stopCallingApi(){
   
@@ -10,6 +11,7 @@ function stopCallingApi(){
 }
 
 
+//This is the function to process the innerHTML of the search result display which will be formatted with an on-board css script
 function search_result_display_html_string(each_venue){
 
     
@@ -83,6 +85,9 @@ function search_result_display_html_string(each_venue){
       </div>`
 }
 
+
+
+//This is the function that processes the html string for the bind popup which also has its own on-board css script
 function location_bindpopup_display_html_string(each_venue){
 
   let venue_name = each_venue.name?each_venue.name:""
@@ -119,6 +124,7 @@ function location_bindpopup_display_html_string(each_venue){
 }
 
 
+//This is a function which will customise the icons for the searched location, like school, library, etc
 function icon(coordinate, custom_icon){
 
   let places_icon = L.icon({
@@ -127,16 +133,15 @@ function icon(coordinate, custom_icon){
     iconAnchor: [35, 50],
     popupAnchor: [0, -50]
   });
-
-
    
-
-
   return L.marker(coordinate,{icon:places_icon})
 
 }
 
 
+//This is the main function which will start from retrieving the search results of the location, 
+//to the car park places to 
+//getting the car park's status
 async function addSearchResults(data, places_layer, car_park_layer, map){
 
 
@@ -199,20 +204,22 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
         let car_park_status_list= await carParkStatus()
         console.log(coordinate)
         stopCallingApi()
-        generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate)
+        
+        generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate, false)
         
         timer_id = setInterval(async function(){
                                   let car_park_status_list= await carParkStatus()
                                   console.log(coordinate)
-                                  generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate)
+                                  generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate, true)
                         
-                                  }, 120 000)
+                                  }, 120000)
         
         
         
   
       })
   
+     
   
       
       search_result_element.appendChild(result_element)

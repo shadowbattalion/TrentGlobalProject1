@@ -4,7 +4,7 @@ async function main(){
         let map = initMap()//leaflet api, creates the map
         let car_park_layer = L.layerGroup()
         let places_layer = L.layerGroup()
-        // places_layer.addTo(map)
+       
         window.addEventListener('DOMContentLoaded', async function(){
            
             document.querySelector('.search-btn').addEventListener('click', async function(){

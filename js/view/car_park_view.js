@@ -159,10 +159,8 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
 
 function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses){
   
-    
     car_park_layer.clearLayers()
     L.circle(coordinate,{radius:car_park_search_area,color:"#273b8a"}).addTo(car_park_layer)
-    let marker_cluster = L.markerClusterGroup()
     for(let car_park_status of car_park_statuses){
 
         let car_park = car_park_status[0]
@@ -210,21 +208,32 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
                     let modified_icon = icon_selector(display_status["percentage_lots"], display_status["lot_type"])
                    
                     let marker = L.marker(lat_lng,{"icon":modified_icon})
+                    
 
                     marker.bindPopup(car_park_bindpopup_display_html_string(car_park, display_status),{closeButton: false})
+                    
+                   
+                    
+                    
+                    
+            
                         
+                    marker.addTo(car_park_layer)
+                    
+                    
 
-                    marker.addTo(marker_cluster)
+
                 }
                     
             }
+
         }
 
       
        
     } 
     
-    marker_cluster.addTo(car_park_layer)
+    
         
     car_park_layer.addTo(map)
 }
@@ -232,8 +241,11 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
 
 
 
-async function generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate){
+function generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate){
     
+    
+   
+
     let car_park_statuses = []
 
     for(let car_park of car_park_list.result.records){
