@@ -1,4 +1,4 @@
-let range =  0.0018018018 // 200 m calculations: https://www.nhc.noaa.gov/gccalc.shtml
+let range = 0.0018018018 // 200 m calculations: https://www.nhc.noaa.gov/gccalc.shtml
 let car_park_search_area = 300
 let button_200 = document.querySelector("#change-radius-1")
 let button_300 = document.querySelector("#change-radius-2")
@@ -14,10 +14,10 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
 
     } 
     
+    
 
     generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
 
-    L.circle(coordinate,{radius:car_park_search_area}).addTo(car_park_layer)
 
     document.querySelector("#change-radius-1").addEventListener('click', function(){
         button_200.classList.add("disabled")
@@ -26,9 +26,10 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
 
         range = parseFloat(button_200.value)
         car_park_search_area = 300
+
         generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
 
-        L.circle(coordinate,{radius:car_park_search_area}).addTo(car_park_layer)
+        
     })
 
     document.querySelector("#change-radius-2").addEventListener('click', function(){
@@ -37,10 +38,11 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
         button_400.classList.remove("disabled")
 
         range = parseFloat(document.querySelector("#change-radius-2").value)
-        
-        generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
         car_park_search_area = 400
-        L.circle(coordinate,{radius:car_park_search_area}).addTo(car_park_layer)
+
+        generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
+        
+       
     })
 
     document.querySelector("#change-radius-3").addEventListener('click', function(){
@@ -49,10 +51,10 @@ async function generateCarParkLayer(car_park_list, car_park_status_list, car_par
         button_400.classList.add("disabled")
 
         range = parseFloat(document.querySelector("#change-radius-3").value)
-        
-        generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
         car_park_search_area = 500
-        L.circle(coordinate,{radius:car_park_search_area}).addTo(car_park_layer)
+
+        generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
+        
     })
 
 
@@ -147,8 +149,9 @@ function icon_selector(percentage_lots, lot_type){
 
 function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses){
   
-
+    
     car_park_layer.clearLayers()
+    L.circle(coordinate,{radius:car_park_search_area,color:"#273b8a"}).addTo(car_park_layer)
     let marker_cluster = L.markerClusterGroup()
     for(let car_park_status of car_park_statuses){
 
