@@ -10,14 +10,51 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
 
     return `
     <style>
+    #all-pages {
+        position: relative;   
+    
+    }
+    .page{
+
+        height: 50px;
+        box-sizing: border-box;
+        
+      
+        }
+      
     </style>
-    <h3 id="carpark_number">${car_park.address}</h3>
-    <p> Carpark Number: ${car_park.car_park_no} <br>
-        Available Lots: ${display_status["available_lots"]} <br> 
-        Occupied Lots: ${display_status["occupied_lots"]} <br> 
-        Total Lots: ${display_status["total_lots"]} <br> 
-        Last updated: ${last_updated_duration(display_status["last_updated"])} <br> 
-        Car Park Type: ${display_status["lot_type"]} </p>`
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Active</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+        </li>
+    </ul>
+    <div id="all-pages">
+        <div id = "page-1" class="page">
+            <h1>Page 1</h1>
+            <h3 id="carpark_number">${car_park.address}</h3>
+        </div>
+        <div id = "page-2" class="page hidden">
+            <h1>Page 2</h1>
+            <p> Carpark Number: ${car_park.car_park_no} <br>
+                Available Lots: ${display_status["available_lots"]} <br> 
+                Occupied Lots: ${display_status["occupied_lots"]} </p>
+        </div>
+        <div id = "page-3" class="page hidden">
+            <h1>Page 3</h1>
+            <p> Total Lots: ${display_status["total_lots"]} <br> 
+                Last updated: ${last_updated_duration(display_status["last_updated"])} <br> 
+                Car Park Type: ${display_status["lot_type"]} </p>
+        </div>
+    </div>`
 
 
 }
