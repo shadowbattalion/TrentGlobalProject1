@@ -5,6 +5,27 @@ let button_300 = document.querySelector("#change-radius-2")
 let button_400 = document.querySelector("#change-radius-3")
 
 
+
+function btn_1(){
+
+    console.log("btn-1")
+    let allPages = document.querySelectorAll('.page')
+    
+    for(let p  of allPages){
+      console.log(p.className)
+      p.classList.remove('show')
+      p.classList.add('hidden')
+  
+    }
+  
+    document.querySelector('#page-1').classList.add('show')
+
+
+}
+
+
+
+
 function car_park_bindpopup_display_html_string(car_park, display_status){
 
 
@@ -16,45 +37,45 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
     }
     .page{
 
-        height: 50px;
+        height: auto;
         box-sizing: border-box;
         
       
-        }
+    }
       
     </style>
+    
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Active</a>
+            <a id="#btn-1" onclick=btn_1() class="nav-link" aria-current="page" href="#">Active</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link active" href="#">Link</a>
+            <a id="#btn-2" class="nav-link active" href="#">Link</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link disabled">Disabled</a>
+            <a id="#btn-3" class="nav-link" href="#">Link</a>
         </li>
     </ul>
     <div id="all-pages">
         <div id = "page-1" class="page">
-            <h1>Page 1</h1>
-            <h3 id="carpark_number">${car_park.address}</h3>
+            <h3>Page 1</h1>
+            <h4 id="carpark_number">${car_park.address}</h3>
         </div>
         <div id = "page-2" class="page hidden">
-            <h1>Page 2</h1>
+            <h3>Page 2</h1>
             <p> Carpark Number: ${car_park.car_park_no} <br>
                 Available Lots: ${display_status["available_lots"]} <br> 
                 Occupied Lots: ${display_status["occupied_lots"]} </p>
         </div>
         <div id = "page-3" class="page hidden">
-            <h1>Page 3</h1>
+            <h3>Page 3</h1>
             <p> Total Lots: ${display_status["total_lots"]} <br> 
                 Last updated: ${last_updated_duration(display_status["last_updated"])} <br> 
                 Car Park Type: ${display_status["lot_type"]} </p>
         </div>
-    </div>`
+    </div>
+    
+    `
 
 
 }

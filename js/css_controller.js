@@ -16,3 +16,42 @@ search_icon.addEventListener('click', function(){
 
 
 })
+
+
+// document.querySelector("#btn-1").addEventListener('click', function(){
+//     console.log("test")
+    // let allPages = document.querySelectorAll('.page')
+    // for(let p  of allPages){
+    //   p.classList.remove('show')
+    //   p.classList.add('hidden')
+  
+    // }
+  
+    // document.querySelector('#page-1').classList.add('show')
+//   })
+  
+  
+//   document.querySelector("#btn-2").addEventListener('click', function(){
+  
+//     let allPages = document.querySelectorAll('.page')
+//     for(let p  of allPages){
+//       p.classList.remove('show')
+//       p.classList.add('hidden')
+  
+//     }
+  
+//     document.querySelector('#page-2').classList.add('show')
+//   })
+  
+  
+//   document.querySelector("#btn-3").addEventListener('click', function(){
+  
+//     let allPages = document.querySelectorAll('.page')
+//     for(let p  of allPages){
+//       p.classList.remove('show')
+//       p.classList.add('hidden')
+  
+//     }
+  
+//     document.querySelector('#page-3').classList.add('show')
+//   })
