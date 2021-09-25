@@ -6,22 +6,28 @@ let button_400 = document.querySelector("#change-radius-3")
 
 
 
-function btn_1(){
+function btn(page_no){
 
-    console.log("btn-1")
-    let allPages = document.querySelectorAll('.page')
     
-    for(let p  of allPages){
-      console.log(p.className)
-      p.classList.remove('show')
-      p.classList.add('hidden')
-  
+    let all_pages = document.querySelectorAll('.page')
+    let all_nav_btns = document.querySelectorAll('.nav-link')
+    
+    for(let page  of all_pages){
+      page.classList.remove('show')
+      page.classList.add('hidden')
+      page.classList.remove('active')  
+    }
+
+    for (let button of all_nav_btns){
+        button.classList.remove('active')
     }
   
-    document.querySelector('#page-1').classList.add('show')
+    document.querySelector(`#page-${page_no}`).classList.add('show')
+    document.querySelector(`#btn-${page_no}`).classList.add('active')
 
 
 }
+
 
 
 
@@ -35,45 +41,69 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
         position: relative;   
     
     }
+
     .page{
 
         height: auto;
         box-sizing: border-box;
+        width:300px;
+        height:200px;
         
       
+    }
+
+
+    .hidden{
+        display:none;
+    }
+    
+    
+    
+    .show{
+        display:block;
     }
       
     </style>
     
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a id="#btn-1" onclick=btn_1() class="nav-link" aria-current="page" href="#">Active</a>
+            <a onclick=btn(1) id="btn-1" class="nav-link active" href="#">Active</a>
         </li>
         <li class="nav-item">
-            <a id="#btn-2" class="nav-link active" href="#">Link</a>
+            <a onclick=btn(2) id="btn-2" class="nav-link" href="#">Link</a>
         </li>
         <li class="nav-item">
-            <a id="#btn-3" class="nav-link" href="#">Link</a>
+            <a onclick=btn(3) id="btn-3" class="nav-link" href="#">Link</a>
         </li>
     </ul>
     <div id="all-pages">
         <div id = "page-1" class="page">
-            <h3>Page 1</h1>
-            <h4 id="carpark_number">${car_park.address}</h3>
+            <div class="card" style="width: auto;">
+                <div class="card-body">
+                <h5 id="title" class="card-title">Car Park Address</h5>
+                <div class="line my-2"></div>
+                <h6 class="body" class="card-subtitle mb-2">${car_park.address}</h6>
+                </div>
+            </div>
         </div>
         <div id = "page-2" class="page hidden">
-            <h3>Page 2</h1>
+            <h3>Page 2</h3>
+            <div class="line my-2"></div>
             <p> Carpark Number: ${car_park.car_park_no} <br>
                 Available Lots: ${display_status["available_lots"]} <br> 
                 Occupied Lots: ${display_status["occupied_lots"]} </p>
         </div>
         <div id = "page-3" class="page hidden">
-            <h3>Page 3</h1>
+            <h3>Page 3</h3>
+            <div class="line my-2"></div>
             <p> Total Lots: ${display_status["total_lots"]} <br> 
                 Last updated: ${last_updated_duration(display_status["last_updated"])} <br> 
                 Car Park Type: ${display_status["lot_type"]} </p>
         </div>
     </div>
+
+
+    
     
     `
 
@@ -135,7 +165,7 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
                    
                     let marker = L.marker(lat_lng,{"icon":modified_icon})
 
-                    marker.bindPopup(car_park_bindpopup_display_html_string(car_park, display_status))
+                    marker.bindPopup(car_park_bindpopup_display_html_string(car_park, display_status),{closeButton: false})
                         
 
                     marker.addTo(marker_cluster)
