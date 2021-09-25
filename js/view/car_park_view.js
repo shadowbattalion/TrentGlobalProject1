@@ -137,7 +137,7 @@ function icon_selector(percentage_lots, lot_type){
         iconUrl:      png_file_string,
         iconSize:     [80, 80],
         iconAnchor:   [27, 75],
-        popupAnchor:  [0, -60]
+        popupAnchor:  [-5, -70]
 
     })    
 

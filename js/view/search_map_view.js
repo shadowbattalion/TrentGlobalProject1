@@ -125,8 +125,8 @@ function icon(coordinate, custom_icon){
   let places_icon = L.icon({
     iconUrl: custom_icon,
     iconSize: [64, 64],
-    iconAnchor: [22, 94],
-    popupAnchor: [-3, -76]
+    iconAnchor: [35, 50],
+    popupAnchor: [0, -50]
   });
 
 
@@ -167,6 +167,7 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
         if(custom_icon){
           console.log(custom_icon)
           marker = icon(coordinate, custom_icon) 
+          // marker = L.marker(coordinate)
         }else{
           marker = L.marker(coordinate)
         }
