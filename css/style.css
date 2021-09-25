@@ -150,7 +150,7 @@
     flex-direction: column;
     justify-content: flex-end;
     right:10px;
-    top:60%;
+    bottom:120px;
     background-color: var(--secondary-color);
     height:175px;
     width:100px;
@@ -238,7 +238,7 @@
     /* radius buttons */
     #btn-set{
         left:10px;
-        top:75%;
+        bottom:10px;
         height:250px;
         width:125px;
     }
@@ -265,29 +265,13 @@
 
 
 @media (min-width:1200px) {
-    .search-container{
-        
-        left:30px;
-        right:0px;
-        justify-content: flex-start;
-
-        transition: width 1s ease-in-out;
-    }
-    
-    .search-container-expand{
-        width:400px;
-        
-    }
-
     #search-icon{
    
         height: 150px;
     
     
     }
-    
-       
-    
+     
     .search-group{
         left:110px;
         top:90px;
@@ -320,10 +304,4 @@
         width:500px;
     }
 
-    /* radius buttons */
-    #btn-set{
-
-        bottom:60px;
-        
-    }
 }
