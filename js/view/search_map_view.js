@@ -167,7 +167,6 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
         if(custom_icon){
           console.log(custom_icon)
           marker = icon(coordinate, custom_icon) 
-          // marker = L.marker(coordinate)
         }else{
           marker = L.marker(coordinate)
         }
