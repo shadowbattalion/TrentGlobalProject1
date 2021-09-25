@@ -82,6 +82,12 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
   
     }
 
+    .card{
+
+        height: 100%; 
+        width: 100%;
+
+    }
 
     </style>
     
@@ -98,7 +104,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
     </ul>
     <div id="all-pages">
         <div id = "page-1" class="page">
-            <div class="card " style="width: auto;">
+            <div class="card mt-2">
                 <div class="card-body">
                     <h5 id="title" class="card-title">Car Park Address</h5>
                     <div class="line my-2"></div>
@@ -111,7 +117,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
             </div>
         </div>
         <div id = "page-2" class="page hidden">
-            <div class="card " style="width: auto;">
+            <div class="card mt-2">
                 <div class="card-body">
                     <h5 id="title" class="card-title">Details</h5>
                     <div class="line my-2"></div>
@@ -126,7 +132,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
             </div>       
         </div>
         <div id = "page-3" class="page hidden">
-            <div class="card " style="width: auto;">
+            <div class="card mt-2">
                 <div class="card-body">
                     <h5 id="title" class="card-title">Details</h5>
                     <div class="line my-2"></div>
