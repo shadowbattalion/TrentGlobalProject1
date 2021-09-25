@@ -116,15 +116,27 @@ function location_bindpopup_display_html_string(each_venue){
       <h6 class="body" class="card-subtitle mb-2">${address.join(" ")}</h6>
       <p class="body" class="card-text">${location_description.join(" ")}</p>
     </div>
-  </div>
-  
-  `
+  </div> `
+}
 
 
+function icon(coordinate, custom_icon){
+
+  let places_icon = L.icon({
+    iconUrl: custom_icon,
+    iconSize: [64, 64],
+    iconAnchor: [22, 94],
+    popupAnchor: [-3, -76]
+  });
 
 
+   
+
+
+  return L.marker(coordinate,{icon:places_icon})
 
 }
+
 
 async function addSearchResults(data, places_layer, car_park_layer, map){
 
@@ -149,12 +161,12 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
 
       result_element.addEventListener("click", async function(){
         
-        let custom_icon = each_venue.categories[0]?`${each_venue.categories[0].icon.prefix}${each_venue.categories[0].icon.suffix}`:"" // remember to add size
+        let custom_icon = each_venue.categories[0]?`${each_venue.categories[0].icon.prefix}bg_64${each_venue.categories[0].icon.suffix}`:"" // remember to add size
         let marker = ""
 
         if(custom_icon){
           console.log(custom_icon)
-          marker = L.marker(coordinate)
+          marker = icon(coordinate, custom_icon) 
         }else{
           marker = L.marker(coordinate)
         }
