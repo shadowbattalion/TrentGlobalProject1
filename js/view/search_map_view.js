@@ -206,7 +206,7 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
                                   console.log(coordinate)
                                   generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate)
                         
-                                  }, 20000)
+                                  }, 120 000)
         
         
         
