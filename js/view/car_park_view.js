@@ -62,12 +62,32 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
     .show{
         display:block;
     }
+    
+
+    #title{
+        font-family: var(--font-family-main);
+    
+    }
+    
+    .body{
+        font-family: var(--font-family-sub);
+    
+    }
+
+    .line{
       
+        background-image:linear-gradient(90deg,transparent, var(--primary-color),transparent);
+        width:auto;
+        height:2px;
+  
+    }
+
+
     </style>
     
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a onclick=btn(1) id="btn-1" class="nav-link active" href="#">Active</a>
+            <a onclick=btn(1) id="btn-1" class="nav-link active" href="#">Address</a>
         </li>
         <li class="nav-item">
             <a onclick=btn(2) id="btn-2" class="nav-link" href="#">Link</a>
@@ -78,27 +98,47 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
     </ul>
     <div id="all-pages">
         <div id = "page-1" class="page">
-            <div class="card" style="width: auto;">
+            <div class="card " style="width: auto;">
                 <div class="card-body">
-                <h5 id="title" class="card-title">Car Park Address</h5>
-                <div class="line my-2"></div>
-                <h6 class="body" class="card-subtitle mb-2">${car_park.address}</h6>
+                    <h5 id="title" class="card-title">Car Park Address</h5>
+                    <div class="line my-2"></div>
+                    <h6 class="body" class="card-subtitle mb-2">
+                        <p>
+                            ${car_park.address}
+                        </p>    
+                    </h6>
                 </div>
             </div>
         </div>
         <div id = "page-2" class="page hidden">
-            <h3>Page 2</h3>
-            <div class="line my-2"></div>
-            <p> Carpark Number: ${car_park.car_park_no} <br>
-                Available Lots: ${display_status["available_lots"]} <br> 
-                Occupied Lots: ${display_status["occupied_lots"]} </p>
+            <div class="card " style="width: auto;">
+                <div class="card-body">
+                    <h5 id="title" class="card-title">Details</h5>
+                    <div class="line my-2"></div>
+                    <h6 class="body" class="card-subtitle mb-2">
+                        <p> 
+                            Carpark Number: ${car_park.car_park_no} <br>
+                            Available Lots: ${display_status["available_lots"]} <br> 
+                            Occupied Lots: ${display_status["occupied_lots"]} 
+                        </p>
+                    </h6>
+                </div>
+            </div>       
         </div>
         <div id = "page-3" class="page hidden">
-            <h3>Page 3</h3>
-            <div class="line my-2"></div>
-            <p> Total Lots: ${display_status["total_lots"]} <br> 
-                Last updated: ${last_updated_duration(display_status["last_updated"])} <br> 
-                Car Park Type: ${display_status["lot_type"]} </p>
+            <div class="card " style="width: auto;">
+                <div class="card-body">
+                    <h5 id="title" class="card-title">Details</h5>
+                    <div class="line my-2"></div>
+                    <h6 class="body" class="card-subtitle mb-2">
+                        <p> 
+                            Total Lots: ${display_status["total_lots"]} <br> 
+                            Last updated: ${last_updated_duration(display_status["last_updated"])} <br> 
+                            Car Park Type: ${display_status["lot_type"]}
+                        </p>
+                    </h6>
+                </div>
+            </div>                  
         </div>
     </div>
 

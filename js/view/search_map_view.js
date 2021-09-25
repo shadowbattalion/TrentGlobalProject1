@@ -64,8 +64,7 @@ function search_result_display_html_string(each_venue){
           background-image:linear-gradient(90deg,transparent, var(--primary-color),transparent);
           width:auto;
           height:2px;
-        
-      
+    
       }
             
       </style>
@@ -103,7 +102,7 @@ function location_bindpopup_display_html_string(each_venue){
 
   }
 
-  #body{
+  .body{
     font-family: var(--font-family-sub);
 
   }
