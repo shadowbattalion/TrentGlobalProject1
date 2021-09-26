@@ -23,9 +23,9 @@
     visibility: visible;
     opacity: 1;
 
-    top: 25%;
+    top: 20%;
     left: 25%;
-    height: 50%;
+    height: 60%;
     width: 50%;
 
 
@@ -85,7 +85,8 @@
 }
 
 #banner-logo{
-    width: 30%;
+    width: 100%;
+    
 
 }
 
@@ -94,7 +95,9 @@
     
     font-family:var(--font-family-sub);
     text-align: center;
-    flex:2; 
+    margin: 0px 2px;
+    
+   
 }
 
 
