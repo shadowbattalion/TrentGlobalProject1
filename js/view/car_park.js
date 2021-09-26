@@ -89,6 +89,10 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
 
     }
 
+    .active{
+        background-color:#273b8a !important;
+    }
+
     </style>
     
     <ul class="nav nav-pills">
