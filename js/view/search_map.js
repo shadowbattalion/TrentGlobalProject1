@@ -138,13 +138,13 @@ function icon(coords, custom_icon){
 
 }
 
-
+//MAIN FUNCTION
 //This is the main function which will start from retrieving the search results of the places locations, 
 //to retrieving car park locations to 
 //getting the car park's status
 async function displayResult(location_data, places_layer, car_park_layer, map){
 
-
+    //Car park location details will be retreived from the API once as it contains static values
     let car_park_list = await findCarPark()
   
     let search_results_panel=  document.querySelector("#search-results")
@@ -202,9 +202,8 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
         //Once the location has been chose, the coordinates of the location will be used to find all the car park within the radius
         //which can be set by the user.
         
-        //Car park location details will be retreived from the API once as it contains static values
+        
         let car_park_status_list= await carParkStatus()
-        console.log(coords)
         stopCallingApi()
         
         //This funciton will process the car_park marker and will print the icons on the map
@@ -214,7 +213,6 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
         // available slots will be updated after every two minutes
         timer_id = setInterval(async function(){
                                   let car_park_status_list= await carParkStatus()
-                                  console.log(coords)
                                   generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coords, true)
                         
                                   }, 120000)

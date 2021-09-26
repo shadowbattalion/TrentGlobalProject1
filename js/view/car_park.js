@@ -1,11 +1,101 @@
-let range = 0.0018018018 // 200 m calculations: https://www.nhc.noaa.gov/gccalc.shtml
-let car_park_search_area = 300
+// global values for radius button to manipulate the radius of car park search area
+let range = 0.0018018018 // 200 m will be used to add/subtract from the place location coordinate chosen by user to display all the car park markers within the vicinity   calculations: https://www.nhc.noaa.gov/gccalc.shtml
+let car_park_search_area = 300 //default area size of L.circle()
 let button_200 = document.querySelector("#change-radius-1")
 let button_300 = document.querySelector("#change-radius-2")
 let button_400 = document.querySelector("#change-radius-3")
 
 
 
+// The car park location API contains the information about the car park
+// The car park status API contains the status of the availibility of car park slots
+// Both are connected by the car park number
+// This function will do a car park number lookup to check the car park status of the car park locations 
+function resolve_carpark_number(car_park_status_list, car_park_no){
+    
+    let chosen_carpak_status={}
+
+    for (let status of car_park_status_list.items[0].carpark_data){
+        
+        
+        if(status.carpark_number === car_park_no){
+            chosen_carpak_status = status
+            break
+        } else {
+
+            chosen_carpak_status = null
+
+        }
+        
+    }
+    
+    return chosen_carpak_status
+}
+
+
+// Gets the last updated time of car park status
+function last_updated_duration(datetime){
+    
+    if (datetime){
+        let last_updated = new Date(datetime.split("T")[0]+" "+datetime.split("T")[1]).getTime()
+        let current_time = new Date().getTime()
+        let duration = Math.floor((current_time-last_updated)/60000)
+        if (duration>=60){
+            duration_hour = Math.floor(duration/60)
+            duration_minute = duration%60
+            return `${duration_hour} hour ${duration_minute} mins ago.`
+        }
+        return `${duration} mins ago`
+    }
+    return "No information"
+
+}
+
+
+
+
+// selects the icon image based on the percentage of availability of car park slots
+function icon_selector(percentage_lots, lot_type){
+
+    let percentage_string = ""
+    let lot_type_string = ""
+    
+
+    if(percentage_lots>=0 && percentage_lots!=NaN){
+        percentages=['0','1','2','3','4','5','6','7','8','9','10']
+        percentage_string=[Math.floor(percentage_lots/10)]
+
+            
+    }else{
+
+        percentage_string="null" // No info because certain car parks returns a negative percentage or a NaN
+
+    }
+
+    lot_type_string = {
+        "C":"car",
+        "Y":"bike",
+        "H":"lorry"
+    }
+
+    let png_file_string = `images/full_${percentage_string}_type_${lot_type_string[lot_type]}.png`
+
+   
+    let modified_icon = L.icon({
+        iconUrl:      png_file_string,
+        iconSize:     [80, 80],
+        iconAnchor:   [27, 75],
+        popupAnchor:  [-5, -70]
+
+    })    
+
+    return modified_icon
+
+
+}
+
+
+// mini Single Page Application controller for popup box of car park marker
 function btn(page_no){
 
     
@@ -31,7 +121,7 @@ function btn(page_no){
 
 
 
-
+// display the popup for the car park marker with on-board css script
 function car_park_bindpopup_display_html_string(car_park, display_status){
 
 
@@ -276,7 +366,8 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
 }
 
 
-
+//MAIN FUNCTION
+//This function will process
 
 function generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate){
     
@@ -338,89 +429,5 @@ function generateCarParkLayer(car_park_list, car_park_status_list, car_park_laye
 }
 
 
-function resolve_carpark_number(car_park_status_list, car_park_no){
-    
-    let chosen_carpak_status={}
-
-    for (let status of car_park_status_list.items[0].carpark_data){
-        
-        // console.log(status)
-        if(status.carpark_number === car_park_no){
-            chosen_carpak_status = status
-            break
-        } else {
-
-            chosen_carpak_status = null
-
-        }
-        
-    }
-    // console.log(chosen_carpak_status)
-    return chosen_carpak_status
-}
-
-
-
-function last_updated_duration(datetime){
-    
-    if (datetime){
-        let last_updated = new Date(datetime.split("T")[0]+" "+datetime.split("T")[1]).getTime()
-        let current_time = new Date().getTime()
-        let duration = Math.floor((current_time-last_updated)/60000)
-        if (duration>=60){
-            duration_hour = Math.floor(duration/60)
-            duration_minute = duration%60
-            return `${duration_hour} hour ${duration_minute} mins ago.`
-        }
-        return `${duration} mins ago`
-    }
-    return "No information"
-
-}
-
-
-
-
-
-function icon_selector(percentage_lots, lot_type){
-
-    let percentage_string = ""
-    let lot_type_string = ""
-    
-    // console.log(percentage_lots && percentage_lots>=0)
-    if(percentage_lots>=0 && percentage_lots!=NaN){
-        // console.log(percentage_lots)
-        percentages=['0','1','2','3','4','5','6','7','8','9','10']
-        // console.log(Math.floor(percentage_lots/10))
-        percentage_string=[Math.floor(percentage_lots/10)]
-
-            
-    }else{
-
-        percentage_string="null" // No info because certain car parks returns a negative percentage or a NaN
-
-    }
-
-    lot_type_string = {
-        "C":"car",
-        "Y":"bike",
-        "H":"lorry"
-    }
-
-    let png_file_string = `images/full_${percentage_string}_type_${lot_type_string[lot_type]}.png`
-
-   
-    let modified_icon = L.icon({
-        iconUrl:      png_file_string,
-        iconSize:     [80, 80],
-        iconAnchor:   [27, 75],
-        popupAnchor:  [-5, -70]
-
-    })    
-
-    return modified_icon
-
-
-}
 
 
