@@ -96,10 +96,13 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
             <a onclick=btn(1) id="btn-1" class="nav-link active" href="#">Address</a>
         </li>
         <li class="nav-item">
-            <a onclick=btn(2) id="btn-2" class="nav-link" href="#">Link</a>
+            <a onclick=btn(2) id="btn-2" class="nav-link" href="#">Parking Details</a>
         </li>
         <li class="nav-item">
-            <a onclick=btn(3) id="btn-3" class="nav-link" href="#">Link</a>
+            <a onclick=btn(3) id="btn-3" class="nav-link" href="#">Physical Details</a>
+        </li>
+        <li class="nav-item">
+            <a onclick=btn(4) id="btn-4" class="nav-link" href="#">Meta Details</a>
         </li>
     </ul>
     <div id="all-pages">
@@ -111,6 +114,12 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
                     <h6 class="body" class="card-subtitle mb-2">
                         <p>
                             ${car_park.address}
+                        </p>
+                        <p>
+                            Available Lots: ${display_status["available_lots"]}/${display_status["total_lots"]}
+                        </p>
+                        <p>
+                            Last updated: ${last_updated_duration(display_status["last_updated"])} 
                         </p>    
                     </h6>
                 </div>
@@ -119,13 +128,17 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
         <div id = "page-2" class="page hidden">
             <div class="card mt-2">
                 <div class="card-body">
-                    <h5 id="title" class="card-title">Details</h5>
+                    <h5 id="title" class="card-title">Car Park Parking Details</h5>
                     <div class="line my-2"></div>
                     <h6 class="body" class="card-subtitle mb-2">
                         <p> 
-                            Carpark Number: ${car_park.car_park_no} <br>
-                            Available Lots: ${display_status["available_lots"]} <br> 
-                            Occupied Lots: ${display_status["occupied_lots"]} 
+                            Short Term Parking: ${car_park.short_term_parking}
+                        </p>
+                        <p>
+                            Free Parking: ${car_park.free_parking} 
+                        </p>
+                        <p>
+                            Night Parking: ${car_park.night_parking}
                         </p>
                     </h6>
                 </div>
@@ -134,25 +147,44 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
         <div id = "page-3" class="page hidden">
             <div class="card mt-2">
                 <div class="card-body">
-                    <h5 id="title" class="card-title">Details</h5>
+                    <h5 id="title" class="card-title">Car Park Physical Details</h5>
                     <div class="line my-2"></div>
                     <h6 class="body" class="card-subtitle mb-2">
                         <p> 
-                            Total Lots: ${display_status["total_lots"]} <br> 
-                            Last updated: ${last_updated_duration(display_status["last_updated"])} <br> 
-                            Car Park Type: ${display_status["lot_type"]}
+                            Car Park Type: ${car_park.car_park_type}
+                        </p>
+                        <p>    
+                            Car Park Decks: ${car_park.car_park_decks}
+                        </p>
+                        <p>    
+                            Car Park Basement: ${car_park.car_park_basement}  
                         </p>
                     </h6>
                 </div>
             </div>                  
         </div>
+        <div id = "page-4" class="page hidden">
+            <div class="card mt-2">
+                <div class="card-body">
+                    <h5 id="title" class="card-title">Meta Details</h5>
+                    <div class="line my-2"></div>
+                    <h6 class="body" class="card-subtitle mb-2">
+                        <p>
+                            Carpark Number: ${car_park.car_park_no}
+                        </p>
+                        <p>
+                            Gantry Height: ${car_park.gantry_height} "
+                        </p>
+                        <p>
+                            Type Of Parking System: ${car_park.type_of_parking_system}
+                        </p>    
+                    </h6>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-    
-    
     `
-
+    // 
 
 }
 
@@ -178,7 +210,7 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
                                     "percentage_lots":((status.carpark_info[i].total_lots-status.carpark_info[i].lots_available)/status.carpark_info[i].total_lots)*100,
                                     "last_updated":status.update_datetime,
                                     "lot_type":status.carpark_info[i].lot_type
-                                    }
+                                }
                     
                 
                 
