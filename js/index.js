@@ -1,29 +1,23 @@
-async function main(){
-    function init(){// in JS init( can only exist in main()
+async function start(){
+    function init(){
       
-        let map = initMap()//leaflet api, creates the map
+        let map = createMap()
         let car_park_layer = L.layerGroup()
         let places_layer = L.layerGroup()
        
         window.addEventListener('DOMContentLoaded', async function(){
            
-            document.querySelector('#search-btn').addEventListener('click', async function(){
+            let search_btn = document.querySelector('#search-btn')
+            search_btn.addEventListener('click', async function(){
                  //foursquare layer  
-                let query = document.querySelector("#search-input").value
-                let center = map.getBounds().getCenter()
-                let data = await searchLocations(center.lat, center.lng, query)
+                let user_input = document.querySelector("#search-input")
+                let data = await searchLocations(map.getBounds().getCenter().lat, map.getBounds().getCenter().lng, user_input.value)
             
                 addSearchResults(data, places_layer, car_park_layer, map)
 
 
-
-
-
             })
 
-
-            
-            
 
         })
 
@@ -33,7 +27,6 @@ async function main(){
 
             let banner = document.querySelector("#banner")
             banner.classList.add("hide-banner")
-      
             let search_group = document.querySelector("#search-group")
             search_group.classList.toggle("search-group-expand")
             let search_button =  document.querySelector("#search-btn")
@@ -52,7 +45,7 @@ async function main(){
           
         }
       
-        init();
+        init()
       
     
       }
@@ -60,4 +53,4 @@ async function main(){
       
 
       
-      main() //starting point
+      start() 

@@ -13,8 +13,8 @@ function btn(page_no){
     let all_nav_btns = document.querySelectorAll('.nav-link')
     
     for(let page  of all_pages){
-      page.classList.remove('show')
-      page.classList.add('hidden')
+      page.classList.remove('reveal')
+      page.classList.add('hide')
       page.classList.remove('active')  
     }
 
@@ -22,7 +22,7 @@ function btn(page_no){
         button.classList.remove('active')
     }
   
-    document.querySelector(`#page-${page_no}`).classList.add('show')
+    document.querySelector(`#page-${page_no}`).classList.add('reveal')
     document.querySelector(`#btn-${page_no}`).classList.add('active')
 
 
@@ -53,13 +53,13 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
     }
 
 
-    .hidden{
+    .hide{
         display:none;
     }
     
     
     
-    .show{
+    .reveal{
         display:block;
     }
     
@@ -129,7 +129,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
                 </div>
             </div>
         </div>
-        <div id = "page-2" class="page hidden">
+        <div id = "page-2" class="page hide">
             <div class="card mt-2">
                 <div class="card-body">
                     <h5 class="title card-title">Car Park Parking Details</h5>
@@ -148,7 +148,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
                 </div>
             </div>       
         </div>
-        <div id = "page-3" class="page hidden">
+        <div id = "page-3" class="page hide">
             <div class="card mt-2">
                 <div class="card-body">
                     <h5 class="title card-title">Car Park Physical Details</h5>
@@ -167,7 +167,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
                 </div>
             </div>                  
         </div>
-        <div id = "page-4" class="page hidden">
+        <div id = "page-4" class="page hide">
             <div class="card mt-2">
                 <div class="card-body">
                     <h5 class="title card-title">Meta Details</h5>
@@ -188,7 +188,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
         </div>
     </div>
     `
-    // 
+    
 
 }
 
