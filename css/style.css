@@ -12,6 +12,23 @@
 }
 
 
+#banner{
+
+    position:absolute;
+    top:100px;
+    height: 200px;
+    width: 200px;
+    background-color: black;
+    z-index: 314159;
+    border:2px solid black;
+
+
+
+
+    
+}
+
+
 .search-container{
     position: absolute;
     top:10px;

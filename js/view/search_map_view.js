@@ -160,7 +160,8 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
   
       let result_element = document.createElement('div')
       result_element.innerHTML = search_result_display_html_string(each_venue)  
-  
+      
+      search_result_element.appendChild(result_element)
 
 
       result_element.addEventListener("click", async function(){
@@ -222,7 +223,7 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
      
   
       
-      search_result_element.appendChild(result_element)
+      
   
   
   
