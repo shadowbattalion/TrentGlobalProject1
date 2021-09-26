@@ -13,7 +13,7 @@
     position: relative;
 }
 
-
+/* Welcome banner */
 #banner{
 
     position:absolute;
@@ -102,6 +102,9 @@
    
 }
 
+/* =============== */
+
+/* Search container */
 
 #search-container{
     position: absolute;
@@ -230,7 +233,7 @@
     visibility: visible !important;
   }
 
-
+/* ======================= */
 
 
 /* radius buttons */
@@ -267,10 +270,11 @@
     
 }
 
-
+/* ==========================*/
 
 
 @media (min-width:481px) {
+    /* Search container */
     #search-container{
         
         left:0px;
@@ -327,6 +331,8 @@
         width:400px !important;
     }
 
+    /* ====================== */
+
     /* radius buttons */
     #btn-set{
         left:10px;
@@ -349,19 +355,25 @@
         font-size: 20px;
         margin-left:21px;
         margin-top: 10px;
-    
-    
         
     }
+
+    /* ====================== */
 }
 
 
 @media (min-width:769px) {
+
+    /* Welcome banner */
+
     #banner-logo{
         margin:auto;
         width: 30%;
     }
 
+    /* ====================== */
+
+    /* Search container */
     #search-icon{
    
         height: 150px;
@@ -400,5 +412,7 @@
     .search-results-expand{
         width:500px !important;
     }
+
+    /* ====================== */
 
 }

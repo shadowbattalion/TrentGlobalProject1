@@ -2,17 +2,19 @@ async function start(){
     function init(){
       
         let map = createMap()
-        let car_park_layer = L.layerGroup()
-        let places_layer = L.layerGroup()
+        let car_park_layer = L.layerGroup() // will be populated by markers with lat and lng taken from data.gov.sg API
+        let places_layer = L.layerGroup() // will be populated by markers with lat and lng taken from foursquare API
        
         window.addEventListener('DOMContentLoaded', async function(){
            
             let search_btn = document.querySelector('#search-btn')
             search_btn.addEventListener('click', async function(){
-                 //foursquare layer  
+                
+                // Search location using foursquare api and user query  
                 let user_input = document.querySelector("#search-input")
                 let location_data = await searchLocations(map.getBounds().getCenter().lat, map.getBounds().getCenter().lng, user_input.value)
-            
+                
+                //This function will layout all the selected location marker and the car park marker
                 displayResult(location_data, places_layer, car_park_layer, map)
 
 
