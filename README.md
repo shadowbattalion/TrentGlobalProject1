@@ -1,26 +1,51 @@
-# TrentGlobalProject1
+
+#  Car Park Finder
+## Summary
+This project aims to help drivers find and monitor car park capacity in Singapore so that they can plan their journey better.
+
+<ins>Organisation goals:</ins>
+ - Awareness of the traffic condition to make the journey on the road safe for the users and other drivers
+	 - Driving safe includes being able to plan the journey well.
+
+<ins>User goals:</ins>
+ - Able to monitor and get data of car parks before starting the journey so that they know where to park once they reach the location.
+ - Able to find the next best location to park if the intended car park is full. 
+	 - Let's say the user have reached the location and the car park he intended to go happens to be full, he can check the app to find the next best location to park his vehicle without wasting time searching for it.
+
+<ins>Motivation</ins>
+This project is good, perhaps necessary for drivers in Singapore if they wish to have a smooth journey from start to end. We rarely consider car park spaces as part of planning our journey before driving.
+
+ Bad planning before driving often leads to inconvenience or even danger to the user and other drivers on the road. It may also lead to unnecessary traffic congestion near the car parks in the event of functions or massive ceremonies.
+
+<ins>URL to website</ins>
+
+
+## Project Complexity
+
+
+
 ## UI/UX
 ### Stratergy
 
-#### <ins> User Stories </ins>
+<ins> User Stories </ins>
 
-<p> As a **driver**
-    I want to **find out the next best place to park my vehicle nearby**
-    So that **I can have backup options if the first chosen car park is full** </p>
+As a **driver**
+I want to **find out the next best place to park my vehicle nearby**
+So that **I can have backup options if the first chosen car park is full**
 
-<p> As a **car driver**
-    I want to **check out if the car park is full before reaching the destination**
-    So that **I can plan my travel** </p>
+As a **car driver**
+I want to **check out if the car park is full before reaching the destination**
+So that **I can plan my travel**
 
-<p> As a **motorbike rider**
-    I want to **check if the the motorbike park is full or available before reaching the destination**
-    So that **I can plan my travel. Some car park have no motorbike section** </p>
+As a **motorbike rider**
+I want to **check if the the motorbike park is full or available before reaching the destination**
+So that **I can plan my travel. Some car park have no motorbike section**
 
-<p> As a **lorry driver**
-    I want to **check if the the heavy vehicles park is full or available before reaching the destination**
-    So that **I can plan my travel. Not many places have heavy vehicles section** </p>
+As a **lorry driver**
+I want to **check if the the heavy vehicles park is full or available before reaching the destination**
+So that **I can plan my travel. Not many places have heavy vehicles section**
 
-#### <ins> Acceptance Criteria <ins>
+<ins> Acceptance Criteria <ins>
 	
 <br>
 <br>
@@ -74,14 +99,15 @@ Further user actions
 <br>
 	
 ### Structure
-<p>Linear Structure</p>
-<p>Information will be organised in a way that there is a minimal obstruction to the map as much as possible</p>
+Linear Structure
+
+Information will be organised in a way that there is a minimal obstruction to the map as much as possible
 		
 <br>
 <br>
 	
 ### Skeleton
-<p>Inspiration for the design is taken from this website https://www.openstreetmap.org/ . It fits the idea of simplicity and fast interaction for users in order to get the information at a quick glance</p>
+The idea of simplicity and fast interaction for users in order to get the information at a quick glance
 	
 	
 	
