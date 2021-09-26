@@ -293,9 +293,9 @@ function generateCarParkLayer(car_park_list, car_park_status_list, car_park_laye
 
 
     document.querySelector("#change-radius-1").addEventListener('click', function(){
-        button_200.classList.add("disabled")
-        button_300.classList.remove("disabled")
-        button_400.classList.remove("disabled")
+        button_200.style.backgroundColor="black"
+        button_300.style.backgroundColor="#273b8a"
+        button_400.style.backgroundColor="#273b8a"
 
         range = parseFloat(button_200.value)
         car_park_search_area = 300
@@ -306,9 +306,9 @@ function generateCarParkLayer(car_park_list, car_park_status_list, car_park_laye
     })
 
     document.querySelector("#change-radius-2").addEventListener('click', function(){
-        button_200.classList.remove("disabled")
-        button_300.classList.add("disabled")
-        button_400.classList.remove("disabled")
+        button_200.style.backgroundColor="#273b8a"
+        button_300.style.backgroundColor= "black"
+        button_400.style.backgroundColor="#273b8a"
 
         range = parseFloat(document.querySelector("#change-radius-2").value)
         car_park_search_area = 400
@@ -319,9 +319,9 @@ function generateCarParkLayer(car_park_list, car_park_status_list, car_park_laye
     })
 
     document.querySelector("#change-radius-3").addEventListener('click', function(){
-        button_200.classList.remove("disabled")
-        button_300.classList.remove("disabled")
-        button_400.classList.add("disabled")
+        button_200.style.backgroundColor= "#273b8a"
+        button_300.style.backgroundColor= "#273b8a" 
+        button_400.style.backgroundColor= "black"
 
         range = parseFloat(document.querySelector("#change-radius-3").value)
         car_park_search_area = 500
