@@ -64,7 +64,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
     }
     
 
-    #title{
+    .title{
         font-family: var(--font-family-main);
     
     }
@@ -109,7 +109,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
         <div id = "page-1" class="page">
             <div class="card mt-2">
                 <div class="card-body">
-                    <h5 id="title" class="card-title">Car Park Address</h5>
+                    <h5 class="title card-title">Car Park Address</h5>
                     <div class="line my-2"></div>
                     <h6 class="body" class="card-subtitle mb-2">
                         <p>
@@ -128,7 +128,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
         <div id = "page-2" class="page hidden">
             <div class="card mt-2">
                 <div class="card-body">
-                    <h5 id="title" class="card-title">Car Park Parking Details</h5>
+                    <h5 class="title card-title">Car Park Parking Details</h5>
                     <div class="line my-2"></div>
                     <h6 class="body" class="card-subtitle mb-2">
                         <p> 
@@ -147,7 +147,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
         <div id = "page-3" class="page hidden">
             <div class="card mt-2">
                 <div class="card-body">
-                    <h5 id="title" class="card-title">Car Park Physical Details</h5>
+                    <h5 class="title card-title">Car Park Physical Details</h5>
                     <div class="line my-2"></div>
                     <h6 class="body" class="card-subtitle mb-2">
                         <p> 
@@ -166,7 +166,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
         <div id = "page-4" class="page hidden">
             <div class="card mt-2">
                 <div class="card-body">
-                    <h5 id="title" class="card-title">Meta Details</h5>
+                    <h5 class="title card-title">Meta Details</h5>
                     <div class="line my-2"></div>
                     <h6 class="body" class="card-subtitle mb-2">
                         <p>

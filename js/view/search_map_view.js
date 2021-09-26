@@ -102,7 +102,7 @@ function location_bindpopup_display_html_string(each_venue){
 
   return `
   <style>
-  #title{
+  .title{
     font-family: var(--font-family-main);
 
   }
@@ -115,7 +115,7 @@ function location_bindpopup_display_html_string(each_venue){
   </style>
   <div class="card" style="width: auto;">
     <div class="card-body">
-      <h5 id="title" class="card-title">${venue_name}</h5>
+      <h5 class="title card-title">${venue_name}</h5>
       <div class="line my-2"></div>
       <h6 class="body" class="card-subtitle mb-2">${address.join(" ")}</h6>
       <p class="body" class="card-text">${location_description.join(" ")}</p>
