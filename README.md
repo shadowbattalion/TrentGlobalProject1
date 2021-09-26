@@ -23,6 +23,20 @@ This project is good, perhaps necessary for drivers in Singapore if they wish to
 
 ## Project Complexity
 
+<ins>Dynamic Map Application</ins>
+
+| Items | Quantity | Possible Score per Instance | Maximum | Total |
+|--|--|--|--|--|
+| Consume the GET endpoint of an API, or consume a CSV/JSON file | 3 |5| 12| 12 |
+| Adding or removing DOM elements to the display(map, DOM tree, game screen) base on user's actions | 1 |8 | 20| 8 |
+| Modifying the CSS of DOM elements based on the user's actions | 2 |5 | 12 | 10 |
+| Use of 1D traversal of array | 3 |10| 15 | 15 |
+|  |  |	 |  |  |
+|  |  |	 |  |  |
+|  |  |	 |  |  |
+|  |  |	 |  |  |
+|  |  |	 |  |  |
+
 
 
 ## UI/UX
