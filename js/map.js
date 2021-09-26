@@ -9,7 +9,7 @@ function initMap(){
         id: 'mapbox/streets-v11',
         tileSize: 512,
         zoomOffset: -1,
-        accessToken: 'pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw' //demo access token
+        accessToken: 'pk.eyJ1IjoibXVoYW1tYWQtaGFmaXotdW1hciIsImEiOiJja3UxMnhoZ3cxMGt4MnZvdzcxaTlleTcxIn0.48LX7Seitbhdn0MNSTyZ0Q' 
     }).addTo(map);
 
     L.control.zoom({
