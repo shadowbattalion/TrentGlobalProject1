@@ -202,30 +202,18 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
         //Once the location has been chose, the coordinates of the location will be used to find all the car park within the radius
         //which can be set by the user.
         
-        
-        let car_park_status_list= await carParkStatus()
         stopCallingApi()
         
         //This funciton will process the car_park marker and will print the icons on the map
-        generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coords, false)
+        generateCarParkLayer(car_park_list, car_park_layer, map, coords)
         
         // This function will continue to call the function in an interval, so that the status of the car park, in terms of the number of
         // available slots will be updated after every two minutes
-        timer_id = setInterval(async function(){
-                                  let car_park_status_list= await carParkStatus()
-                                  generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coords, true)
-                        
-                                  }, 120000)
+        timer_id = setInterval(async function(){generateCarParkLayer(car_park_list, car_park_layer, map, coords)}, 60000)
         
-        
-        
-  
       })
   
      
-  
-      
-      
   
   
   

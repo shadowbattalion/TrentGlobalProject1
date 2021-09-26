@@ -367,12 +367,12 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
 
 
 //MAIN FUNCTION
-//This function will process
+//This function will process the car park layer
 
-function generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate){
+async function generateCarParkLayer(car_park_list, car_park_layer, map, coordinate){
     
     
-   
+    let car_park_status_list= await carParkStatus()
 
     let car_park_statuses = []
 
