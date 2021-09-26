@@ -161,6 +161,7 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
   
     car_park_layer.clearLayers()
     L.circle(coordinate,{radius:car_park_search_area,color:"#273b8a"}).addTo(car_park_layer)
+    let marker_cluster = new L.MarkerClusterGroup()
     for(let car_park_status of car_park_statuses){
 
         let car_park = car_park_status[0]
@@ -216,9 +217,9 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
                     
                     
                     
-            
+                    marker.addTo(marker_cluster)
                         
-                    marker.addTo(car_park_layer)
+                   
                     
                     
 
@@ -234,7 +235,7 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
     } 
     
     
-        
+    marker_cluster.addTo(car_park_layer)    
     car_park_layer.addTo(map)
 }
 
