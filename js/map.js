@@ -1,6 +1,6 @@
 function initMap(){
-    let singapore = [1.29,103.85]; // #1 Singapore latlng
-    let map = L.map('map',{zoomControl: false}).setView(singapore, 13); // #2 Set the center point
+    let singapore = [1.35,103.80]; 
+    let map = L.map('map',{zoomControl: false}).setView(singapore, 12); 
 
     // setup the tile layers
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
