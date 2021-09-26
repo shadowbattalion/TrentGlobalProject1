@@ -14,6 +14,6 @@ async function searchLocations(lat, lng, query) {
     }
 
     let location = await axios.get(API_BASE_URL+'/venues/search', {params:parameters})
-    
+
     return location.data
 }

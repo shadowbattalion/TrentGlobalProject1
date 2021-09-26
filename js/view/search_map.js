@@ -12,12 +12,12 @@ function stopCallingApi(){
 
 
 //This is the function to process the innerHTML of the search result display which will be formatted with an on-board css script
-function search_result_display_html_string(each_venue){
+function search_result_display_html_string(venue){
 
     
-    let venue_name = each_venue.name?each_venue.name:""
-    let address = each_venue.location.formattedAddress?each_venue.location.formattedAddress:""
-    let descriptions = each_venue.categories?each_venue.categories:""
+    let venue_name = venue.name?venue.name:""
+    let address = venue.location.formattedAddress?venue.location.formattedAddress:""
+    let descriptions = venue.categories?venue.categories:""
     let location_description=[]
     for(let description of descriptions){
 
@@ -88,11 +88,11 @@ function search_result_display_html_string(each_venue){
 
 
 //This is the function that processes the html string for the bind popup which also has its own on-board css script
-function location_bindpopup_display_html_string(each_venue){
+function location_bindpopup_display_html_string(venue){
 
-  let venue_name = each_venue.name?each_venue.name:""
-  let address = each_venue.location.formattedAddress?each_venue.location.formattedAddress:""
-  let descriptions = each_venue.categories?each_venue.categories:""
+  let venue_name = venue.name?venue.name:""
+  let address = venue.location.formattedAddress?venue.location.formattedAddress:""
+  let descriptions = venue.categories?venue.categories:""
   let location_description=[]
   for(let description of descriptions){
 
@@ -125,7 +125,7 @@ function location_bindpopup_display_html_string(each_venue){
 
 
 //This is a function which will customise the icons for the searched location, like school, library, etc
-function icon(coordinate, custom_icon){
+function icon(coords, custom_icon){
 
   let places_icon = L.icon({
     iconUrl: custom_icon,
@@ -134,7 +134,7 @@ function icon(coordinate, custom_icon){
     popupAnchor: [0, -50]
   });
    
-  return L.marker(coordinate,{icon:places_icon})
+  return L.marker(coords,{icon:places_icon})
 
 }
 
@@ -142,38 +142,38 @@ function icon(coordinate, custom_icon){
 //This is the main function which will start from retrieving the search results of the location, 
 //to the car park places to 
 //getting the car park's status
-async function addSearchResults(data, places_layer, car_park_layer, map){
+async function displayResult(location_data, places_layer, car_park_layer, map){
 
 
     let car_park_list = await findCarPark()
   
-    let search_result_element =  document.querySelector("#search-results")
-    search_result_element.innerHTML = ""
+    let search_results_panel=  document.querySelector("#search-results")
+    search_results_panel.innerHTML = ""
   
     
   
-    for(let each_venue of data.response.venues){
-      let coordinate = [each_venue.location.lat, each_venue.location.lng]
+    for(let venue of location_data.response.venues){
+      let coords = [venue.location.lat, venue.location.lng]
       
 
   
   
-      let result_element = document.createElement('div')
-      result_element.innerHTML = search_result_display_html_string(each_venue)  
+      let result_item = document.createElement('div')
+      result_item.innerHTML = search_result_display_html_string(venue)  
       
-      search_result_element.appendChild(result_element)
+      search_results_panel.appendChild(result_item)
 
 
-      result_element.addEventListener("click", async function(){
+      result_item.addEventListener("click", async function(){
         
-        let custom_icon = each_venue.categories[0]?`${each_venue.categories[0].icon.prefix}bg_64${each_venue.categories[0].icon.suffix}`:"" // remember to add size
+        let custom_icon = venue.categories[0]?`${venue.categories[0].icon.prefix}bg_64${venue.categories[0].icon.suffix}`:"" // remember to add size
         let marker = ""
 
         if(custom_icon){
           console.log(custom_icon)
-          marker = icon(coordinate, custom_icon) 
+          marker = icon(coords, custom_icon) 
         }else{
-          marker = L.marker(coordinate)
+          marker = L.marker(coords)
         }
 
 
@@ -194,8 +194,8 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
       
         
         places_layer.clearLayers()
-        marker.bindPopup(location_bindpopup_display_html_string(each_venue),{closeButton: false})
-        map.flyTo(coordinate, 18)
+        marker.bindPopup(location_bindpopup_display_html_string(venue),{closeButton: false})
+        map.flyTo(coords, 18)
         marker.addTo(places_layer)
         marker.openPopup()
        
@@ -203,15 +203,15 @@ async function addSearchResults(data, places_layer, car_park_layer, map){
         //carParkLayer
         
         let car_park_status_list= await carParkStatus()
-        console.log(coordinate)
+        console.log(coords)
         stopCallingApi()
         
-        generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate, false)
+        generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coords, false)
         
         timer_id = setInterval(async function(){
                                   let car_park_status_list= await carParkStatus()
-                                  console.log(coordinate)
-                                  generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coordinate, true)
+                                  console.log(coords)
+                                  generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coords, true)
                         
                                   }, 120000)
         

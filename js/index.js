@@ -11,9 +11,9 @@ async function start(){
             search_btn.addEventListener('click', async function(){
                  //foursquare layer  
                 let user_input = document.querySelector("#search-input")
-                let data = await searchLocations(map.getBounds().getCenter().lat, map.getBounds().getCenter().lng, user_input.value)
+                let location_data = await searchLocations(map.getBounds().getCenter().lat, map.getBounds().getCenter().lng, user_input.value)
             
-                addSearchResults(data, places_layer, car_park_layer, map)
+                displayResult(location_data, places_layer, car_park_layer, map)
 
 
             })
