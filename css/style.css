@@ -6,6 +6,8 @@
   }
   
 
+
+  
 #map {
     height:100vh; 
     position: relative;
@@ -268,7 +270,7 @@
 
 
 
-@media (min-width:767px) {
+@media (min-width:481px) {
     #search-container{
         
         left:0px;
@@ -354,7 +356,7 @@
 }
 
 
-@media (min-width:1200px) {
+@media (min-width:769px) {
     #banner-logo{
         margin:auto;
         width: 30%;
