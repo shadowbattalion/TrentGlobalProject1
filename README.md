@@ -38,6 +38,13 @@ This project is good, perhaps necessary for drivers in Singapore if they wish to
 | Each type of custom marker (using images or custom behaviour) | 3 (time interval inclusive) |	8 | 20 | 20 |
 
 
+<ins>Bonus</ins>
+
+| Items | Quantity | Possible Score per Instance | Maximum | Total |
+|--|--|--|--|--|
+| Single Page Application | 1 | 15 | 15 | 15 |
+|Use of model view controller|1|20|20|20|
+
 
 
 ## UI/UX
