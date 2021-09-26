@@ -139,8 +139,8 @@ function icon(coords, custom_icon){
 }
 
 
-//This is the main function which will start from retrieving the search results of the location, 
-//to the car park places to 
+//This is the main function which will start from retrieving the search results of the places locations, 
+//to retrieving car park locations to 
 //getting the car park's status
 async function displayResult(location_data, places_layer, car_park_layer, map){
 
@@ -157,26 +157,25 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
       
 
   
-  
+      //Adds to the search result panel in HTML DOM
       let result_item = document.createElement('div')
       result_item.innerHTML = search_result_display_html_string(venue)  
       
       search_results_panel.appendChild(result_item)
 
-
+      //Each search result of the location retrieved will be armed with an event listener 
       result_item.addEventListener("click", async function(){
         
         let custom_icon = venue.categories[0]?`${venue.categories[0].icon.prefix}bg_64${venue.categories[0].icon.suffix}`:"" // remember to add size
         let marker = ""
 
         if(custom_icon){
-          console.log(custom_icon)
           marker = icon(coords, custom_icon) 
         }else{
           marker = L.marker(coords)
         }
 
-
+        // The search bar and the search result panel will disappear once the use clicks on one of the search results
         //search bar animation
         let search_group = document.querySelector("#search-group")
         search_group.classList.toggle("search-group-expand")
@@ -192,7 +191,7 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
       
       
       
-        
+        //adds the chosen location marker to the places_layer, along with its popup. The screen will fly to the said location
         places_layer.clearLayers()
         marker.bindPopup(location_bindpopup_display_html_string(venue),{closeButton: false})
         map.flyTo(coords, 18)
@@ -200,14 +199,19 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
         marker.openPopup()
        
        
-        //carParkLayer
+        //Once the location has been chose, the coordinates of the location will be used to find all the car park within the radius
+        //which can be set by the user.
         
+        //Car park location details will be retreived from the API once as it contains static values
         let car_park_status_list= await carParkStatus()
         console.log(coords)
         stopCallingApi()
         
+        //This funciton will process the car_park marker and will print the icons on the map
         generateCarParkLayer(car_park_list, car_park_status_list, car_park_layer, map, coords, false)
         
+        // This function will continue to call the function in an interval, so that the status of the car park, in terms of the number of
+        // available slots will be updated after every two minutes
         timer_id = setInterval(async function(){
                                   let car_park_status_list= await carParkStatus()
                                   console.log(coords)
@@ -232,7 +236,7 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
     
   
   
-   
+    //places_layer will be added to map
     places_layer.addTo(map)
   
   
