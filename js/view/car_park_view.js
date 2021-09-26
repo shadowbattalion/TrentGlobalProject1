@@ -116,7 +116,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
                             ${car_park.address}
                         </p>
                         <p>
-                            Available Lots: ${display_status["available_lots"]}/${display_status["total_lots"]}
+                            Available Lots: ${display_status["available_lots"]} / ${display_status["total_lots"]}
                         </p>
                         <p>
                             Last updated: ${last_updated_duration(display_status["last_updated"])} 
