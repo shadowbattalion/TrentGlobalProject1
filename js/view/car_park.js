@@ -283,16 +283,18 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
 }
 
 
+//This function is the detached version of the main function below
 function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses){
   
     car_park_layer.clearLayers()
     L.circle(coordinate,{radius:car_park_search_area,color:"#273b8a"}).addTo(car_park_layer)
     let marker_cluster = new L.MarkerClusterGroup()
+    // this process each  marker
     for(let car_park_status of car_park_statuses){
 
         let car_park = car_park_status[0]
         let status = car_park_status[1]
-
+         
         if(status){
                 
             for (let i = 0;  i < status.carpark_info.length; i++){ // loops through the types of car park. some car parks have three types.
@@ -307,14 +309,18 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
                                 }
                     
                 
-                
+                // This is the place where the search area of car park locations will be defined
                 let coordinate_north=coordinate[0]+range
                 let coordinate_south=coordinate[0]-range
                 let coordinate_east=coordinate[1]+range
                 let coordinate_west=coordinate[1]-range
-
+                
+                //As data.gov.sg uses the svy21 format for the coordinates, a library will be used to convert them to
+                //lat and lng
                 let lat_lng = svy21ToWgs84(car_park.y_coord, car_park.x_coord)//lat:lat_lng[0] lng:lat_lng[1]
             
+                
+                //This is where the markers will be filtered based on the range to determin which markers will be shown on the map
                 let flag = 0
                 
                           
@@ -371,7 +377,7 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
 
 async function generateCarParkLayer(car_park_list, car_park_layer, map, coordinate){
     
-    
+    //This will call the car park status api
     let car_park_status_list= await carParkStatus()
 
     let car_park_statuses = []
@@ -383,7 +389,8 @@ async function generateCarParkLayer(car_park_list, car_park_layer, map, coordina
     } 
     
     
-
+    // This function is the detached version of the main function as we need to tie this function to event listeners below in
+    // order to re create the markers verytime the user choose a new radius size
     generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
 
 
@@ -392,7 +399,9 @@ async function generateCarParkLayer(car_park_list, car_park_layer, map, coordina
         button_300.style.backgroundColor="#273b8a"
         button_400.style.backgroundColor="#273b8a"
 
+        //Range will be the value from the HTML element which the user will choose. This value is the range defined globally
         range = parseFloat(button_200.value)
+        // This will be the radius size to be given to the L.circle marker
         car_park_search_area = 300
 
         generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, car_park_statuses)
