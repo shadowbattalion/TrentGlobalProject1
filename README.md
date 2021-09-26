@@ -13,6 +13,7 @@ This project aims to help drivers find and monitor car park capacity in Singapor
 	 - Let's say the user have reached the location and the car park he intended to go happens to be full, he can check the app to find the next best location to park his vehicle without wasting time searching for it.
 
 <ins>Motivation</ins>
+
 This project is good, perhaps necessary for drivers in Singapore if they wish to have a smooth journey from start to end. We rarely consider car park spaces as part of planning our journey before driving.
 
  Bad planning before driving often leads to inconvenience or even danger to the user and other drivers on the road. It may also lead to unnecessary traffic congestion near the car parks in the event of functions or massive ceremonies.
