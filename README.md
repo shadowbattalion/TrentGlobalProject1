@@ -182,15 +182,38 @@ The process of retrieving car park information will repeat with intervals
 <br>
 	
 ### Structure
-Linear Structure
+Structure used: Linear
 
-Information will be organised in a way that there is a minimal obstruction to the map as much as possible
-		
+Information organisation: 
+
+ - User interaction elements like buttons, will be in the periphery as much as possible in order to not obstruct the users view of the map.
+ - Main information like the car park and the location information can only appear whenever the user needs it. It will be stored in popup boxes where users can toggle the content to appear or disappear.
+	
 <br>
 <br>
 	
 ### Skeleton
 The idea of simplicity and fast interaction for users in order to get the information at a quick glance
+
+### Surface Plane
+
+ - Appearance
+	 - Typography:
+		 - Comfortaa: For main titles. Comfortaa is strong to give the impression of confidence to drivers while at the same time looks comfortable as the font look spacious
+		 - Montserrat: For contents. To complement Comfortaa font
+	 - Color : 
+		 - #273b8a : Primary color. Based on LTA logo. Only used for big texts and main titles 
+		 - #dedede: Secondary color. Doesn't cause much contrast with the primary color.
+		 - white: For informational popups where the word sizes are smaller
+		 - black: To highlight clicked buttons.
+	 - Font Size: 
+		 - Where possible, important texts needs to be big as drivers might have strained their eyes from driving and they don't need to further strain their eyes while using the app.
+	 - Layout: 
+		 - As spread out as possible as users might be in the car stopping by the road to get quick and easy information in the case where users need to find a second best car park. 
+ - Mobile Responsiveness: 
+	 - This is achieved by starting from the mobile layout. The most important thing to keep track is the size of components, like words, icons etc. Because this will change when the website runs on a bigger screen, therefore the size of the components and the screens must be proportionate.
+	 - The rest of the functionalities are done in mobile display and will be adjusted accordingly if the screen size affects the said functionalities.
+
 	
 ##  Testing
 
