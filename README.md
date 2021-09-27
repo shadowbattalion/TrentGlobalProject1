@@ -181,6 +181,21 @@ The idea of simplicity and fast interaction for users in order to get the inform
 	 - The rest of the functionalities are done in mobile display and will be adjusted accordingly if the screen size affects the said functionalities.
 
 
+## Features
+### Feature List
+### Feature Flow
+### Future Implementation
+
+ 1. Users can choose whether to display the search and radius controls on the left side or the right side of the mobile screen. Some users might be left handed.
+ 2. The radius button panel turns out to be a bit obstructive. A new design is perhaps needed.
+ 3. Location search filter.
+ 4. Users can control the zoom level based on the radius that they have chosen. For example, then the user increases the radius, the zoom level will increase to correspond with the radius, so that the whole search radius can be seen automatically, without having the user zooming out manually 
+
+### Bugs
+Currently, the car park popup box will disappear once the new interval starts. This is to update the information in the popup box. A new API call will be made after every interval and a new marker will replace the old ones. Which will caused the popup box disappear and users will have to click on the icons to see the updated information.
+
+I would like to see the effect where only the content of the popup box will be updated while the popup box appears on the screen and not disappear after every interval. Currently I couldn't find a way to do that
+
 ## Technology Used
 
  - Axios
@@ -246,6 +261,7 @@ Deployed on Git Pages
 |Car Park Availability|https://data.gov.sg/dataset/carpark-availability|
 |Bootstrap CSS|https://getbootstrap.com/|
 |Google Fonts|https://fonts.google.com/|
+
 
 
 
