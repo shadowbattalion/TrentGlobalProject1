@@ -51,6 +51,43 @@ https://shadowbattalion.github.io/TrentGlobalProject1/
 
 
 
+## Technology Used
+
+ - Axios
+	 - It is a technology used to give the program HTTP client capability
+	 - Purpose: It used to make HTTP requests to APIs/URLs to retrieve data from the server
+	 - https://github.com/axios/axios
+
+ - Foursquare
+	 - A technology that provides the users location information of places that are searched. 
+	 - Purpose: Provides location information of searched places like the latitude and longitude which can be used in conjunction with libraries like Leaflet to print markers on the map.
+	 - https://foursquare.com/
+
+ - Leaflet/Leaflet Clustering
+	 - An interactive map where users can mark location based on longitude and latitudes. It also have utilities to customize and enhance the usage
+	 - Clustering is a technology which will cluster nearby markers based on zoom level into one consolidated marker
+	 - Purpose: Used to visualise the map and make it more interactive
+	 - https://github.com/Leaflet/Leaflet
+
+ - OpenStreetMap
+	 - A community owned map that has underlying geodata which can be used by other libraries to manipulate it. It is what Leaflet is based on.
+	 - Purpose: A map created by the community so that it can be used universally 
+	 - https://www.openstreetmap.org/
+
+ - SVY21 converter
+	 - Latitude and longitude are using the WGS 84 format. The car park data from data.gov.sg are useing the SVY21 format. This library can convert from SVY21 to WSG84
+	 - Purpose: Used to convert SVY21 coordinates to WGS 84 which can then be accepted as parameters by Leaflet markers
+	 - https://github.com/cgcai/SVY21/tree/master/Javascript
+
+ - Bootstrap CSS
+	 - A library which has pre-made css components
+	 - Purpose: for fast building of CSS on websites
+	 - https://getbootstrap.com/
+
+ - Google Fonts
+	 - Additional fonts for HTML
+	 - https://fonts.google.com/
+
 ## UI/UX
 ### Stratergy
 
@@ -141,5 +178,6 @@ The idea of simplicity and fast interaction for users in order to get the inform
 	
 
 	
+
 
 
