@@ -11,7 +11,7 @@ let button_400 = document.querySelector("#change-radius-3")
 // The car park status API contains the status of the availibility of car park slots
 // Both are connected by the car park number
 // This function will do a car park number lookup to check the car park status of the car park locations 
-function resolve_carpark_number(car_park_status_list, car_park_no){
+function resolveCarparkNumber(car_park_status_list, car_park_no){
     
     let chosen_carpak_status={}
 
@@ -34,7 +34,7 @@ function resolve_carpark_number(car_park_status_list, car_park_no){
 
 
 // Gets the last updated time of car park status
-function last_updated_duration(datetime){
+function lastUpdatedDuration(datetime){
     
     if (datetime){
         let last_updated = new Date(datetime.split("T")[0]+" "+datetime.split("T")[1]).getTime()
@@ -55,7 +55,7 @@ function last_updated_duration(datetime){
 
 
 // selects the icon image based on the percentage of availability of car park slots
-function icon_selector(percentage_lots, lot_type){
+function iconSelector(percentage_lots, lot_type){
 
     let percentage_string = ""
     let lot_type_string = ""
@@ -122,7 +122,7 @@ function btn(page_no){
 
 
 // display the popup for the car park marker with on-board css script
-function car_park_bindpopup_display_html_string(car_park, display_status){
+function carParkBindpopupDisplayHtmlString(car_park, display_status){
 
 
     return `
@@ -213,7 +213,7 @@ function car_park_bindpopup_display_html_string(car_park, display_status){
                             Available Lots: ${display_status["available_lots"]} / ${display_status["total_lots"]}
                         </p>
                         <p>
-                            Last updated: ${last_updated_duration(display_status["last_updated"])} 
+                            Last updated: ${lastUpdatedDuration(display_status["last_updated"])} 
                         </p>    
                     </h6>
                 </div>
@@ -338,12 +338,12 @@ function generateCarParkLayerDetachedFunction(car_park_layer, map, coordinate, c
                
                 if(flag === 2){
                     
-                    let modified_icon = icon_selector(display_status["percentage_lots"], display_status["lot_type"])
+                    let modified_icon = iconSelector(display_status["percentage_lots"], display_status["lot_type"])
                    
                     let marker = L.marker(lat_lng,{"icon":modified_icon})
                     
 
-                    marker.bindPopup(car_park_bindpopup_display_html_string(car_park, display_status),{closeButton: false})
+                    marker.bindPopup(carParkBindpopupDisplayHtmlString(car_park, display_status),{closeButton: false})
                     
                    
                     
@@ -384,7 +384,7 @@ async function generateCarParkLayer(car_park_list, car_park_layer, map, coordina
 
     for(let car_park of car_park_list.result.records){
         
-        car_park_statuses.push([car_park,resolve_carpark_number(car_park_status_list, car_park.car_park_no)])
+        car_park_statuses.push([car_park,resolveCarparkNumber(car_park_status_list, car_park.car_park_no)])
 
     } 
     

@@ -12,7 +12,7 @@ function stopCallingApi(){
 
 
 //This is the function to process the innerHTML of the search result display which will be formatted with an on-board css script
-function search_result_display_html_string(venue){
+function searchResultDisplayHtmlString(venue){
 
     
     let venue_name = venue.name?venue.name:""
@@ -88,7 +88,7 @@ function search_result_display_html_string(venue){
 
 
 //This is the function that processes the html string for the bind popup which also has its own on-board css script
-function location_bindpopup_display_html_string(venue){
+function locationBindpopupDisplayHtmlString(venue){
 
   let venue_name = venue.name?venue.name:""
   let address = venue.location.formattedAddress?venue.location.formattedAddress:""
@@ -159,7 +159,7 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
   
       //Adds to the search result panel in HTML DOM
       let result_item = document.createElement('div')
-      result_item.innerHTML = search_result_display_html_string(venue)  
+      result_item.innerHTML = searchResultDisplayHtmlString(venue)  
       
       search_results_panel.appendChild(result_item)
 
@@ -193,7 +193,7 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
       
         //adds the chosen location marker to the places_layer, along with its popup. The screen will fly to the said location
         places_layer.clearLayers()
-        marker.bindPopup(location_bindpopup_display_html_string(venue),{closeButton: false})
+        marker.bindPopup(locationBindpopupDisplayHtmlString(venue),{closeButton: false})
         map.flyTo(coords, 18)
         marker.addTo(places_layer)
         marker.openPopup()
@@ -209,7 +209,7 @@ async function displayResult(location_data, places_layer, car_park_layer, map){
         
         // This function will continue to call the function in an interval, so that the status of the car park, in terms of the number of
         // available slots will be updated after every two minutes
-        timer_id = setInterval(async function(){generateCarParkLayer(car_park_list, car_park_layer, map, coords)}, 60000)
+        timer_id = setInterval(async function(){generateCarParkLayer(car_park_list, car_park_layer, map, coords)}, 120000)
         
       })
   
