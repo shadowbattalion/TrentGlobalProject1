@@ -183,7 +183,21 @@ The idea of simplicity and fast interaction for users in order to get the inform
 
 ## Features
 ### Feature List
+
+ 1. Retractable animation to make the UI less obstructive for the users whenever they need to use the map
+ 2. Search bar
+ 3. Search results
+ 4. Location information
+ 5. Car park locations nearby
+ 6. Car Park icons designed to display car park status at a glance
+ 7.  Car Park status is updated in intervals without updating the whole map
+ 8.  Adjustable search radius of car parks around the selected location
+
 ### Feature Flow
+
+
+
+
 ### Future Implementation
 
  1. Users can choose whether to display the search and radius controls on the left side or the right side of the mobile screen. Some users might be left handed.
@@ -261,6 +275,7 @@ Deployed on Git Pages
 |Car Park Availability|https://data.gov.sg/dataset/carpark-availability|
 |Bootstrap CSS|https://getbootstrap.com/|
 |Google Fonts|https://fonts.google.com/|
+
 
 
 
