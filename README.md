@@ -177,7 +177,18 @@ The idea of simplicity and fast interaction for users in order to get the inform
 	
 	
 
-	
-
+## Credits
+| Acknowledgements | Link |
+|--|--|
+| Axios | https://github.com/axios/axios|
+|Foursquare| https://foursquare.com/ |
+|Leaflet/Leaflet Clustering|https://github.com/Leaflet/Leaflet|
+|OpenStreetMap|https://www.openstreetmap.org/|
+|Map Box|https://www.mapbox.com/|
+|SVY21 converter|https://github.com/cgcai/SVY21/tree/master/Javascript|
+|HDB Car Park|https://data.gov.sg/dataset/hdb-carpark-information|
+|Car Park Availability|https://data.gov.sg/dataset/carpark-availability|
+|Bootstrap CSS|https://getbootstrap.com/|
+|Google Fonts|https://fonts.google.com/|
 
 
