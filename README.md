@@ -161,6 +161,12 @@ Information organisation:
 ### Skeleton
 The idea of simplicity and fast interaction for users in order to get the information at a quick glance
 
+Desktop Mockup:
+![](readme_images/wireframe_desktop.jpg)
+	
+Mobile Mockup
+![](readme_images/wireframe_mobile.jpg)
+
 ### Surface Plane
 
  - Appearance
@@ -194,7 +200,7 @@ The idea of simplicity and fast interaction for users in order to get the inform
  8.  Adjustable search radius of car parks around the selected location
 
 ### Feature Flow
-![](feature_flow.jpg)
+![](readme_images/feature_flow.jpg)
 
 
 
