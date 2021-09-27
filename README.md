@@ -181,7 +181,7 @@ The idea of simplicity and fast interaction for users in order to get the inform
 | 1 | User accesses the main URL | <ol><li>Go to https://shadowbattalion.github.io/TrentGlobalProject1/ </li></ol> | The website should appear with the welcome banner and a map for its background. There should be a button with magnifying glass on top left/right corner of the website ; depends on the screen size of the device  |
 | 2| User searches for location and its nearby car parks statuses  |<ol><li>Click on the search icon (magnifying-glass)</li><li>Type in search query "Evergreen" and click the "Search" button</li><li>Click on "Evergreen Secondary School" from the search results</li></ol>|The welcome banner will disappear. The website will then "flyto" the specified location and will show the nearby car park icon markers. The icon will show how occupied each car park is, based on the image of the icon.|
 | 3|  User wants to know more about the car park|<ol><li>Click on the car park icon</li><li>Click on the "Parking Details" tab</li></ol> |A popup will open and will show 4 tabs which users can choose from to understand the car park situation.|
-| 4| User wants the car park search to cover a bigger radius  |<ol><li>Click on the "300m" radius buttons</li></ol>|The circle around the chosen location will expand/contract based on the radius that user has chosen and the car park icons will appear disappear correspondingly.|
+| 4| User wants the car park search to cover a bigger radius  |<ol><li>Click on the "300m" radius buttons</li></ol>|The circle around the chosen location will expand to 300m and new new car park icons will appear.|
 | 5a| User wants to look for another location (from the current search result)|<ol><li>Click on the search icon (magnifying-glass)</li><li>Click on "Evergreen Primary School"</li></ol>|The website will then “flyto” the specified location and will show the nearby car park icon markers. The icon will show how occupied each car park is, based on the image of the icon.|
 | 5b| User wants to look for another location (new search query)|<ol><li>Click on the search icon (magnifying-glass)</li><li>Type in search query "Bishan" and click the "Search" button</li><li>Click on "Bishan MRT Interchange (NS17/CC15)" from the search results</li></ol>|The website will then “flyto” the specified location and will show the nearby car park icon markers. The icon will show how occupied each car park is, based on the image of the icon.|
 
@@ -200,6 +200,7 @@ The idea of simplicity and fast interaction for users in order to get the inform
 |Car Park Availability|https://data.gov.sg/dataset/carpark-availability|
 |Bootstrap CSS|https://getbootstrap.com/|
 |Google Fonts|https://fonts.google.com/|
+
 
 
 
