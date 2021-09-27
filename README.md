@@ -164,7 +164,7 @@ The idea of simplicity and fast interaction for users in order to get the inform
 Desktop Mockup:
 ![](readme_images/wireframe_desktop.jpg)
 	
-Mobile Mockup
+Mobile Mockup:
 ![](readme_images/wireframe_mobile.jpg)
 
 ### Surface Plane
