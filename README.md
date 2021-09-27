@@ -202,6 +202,9 @@ Mobile Mockup:
  8.  Adjustable search radius of car parks around the selected location
 
 ### Feature Flow
+	
+The following images is the feature flow which connects all the features together. The interval that updates the car park availibility status is set to update every 2 mins.
+	
 ![](readme_images/feature_flow.jpg)
 
 
