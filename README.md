@@ -174,7 +174,15 @@ Information will be organised in a way that there is a minimal obstruction to th
 ### Skeleton
 The idea of simplicity and fast interaction for users in order to get the information at a quick glance
 	
-	
+##  Testing
+
+| Test Case # | Test Case Description |Test Steps|Expected Result|
+|--|--|--|--|
+| 1 | User accesses the main URL | <ol><li>Go to https://shadowbattalion.github.io/TrentGlobalProject1/ </li></ol> | The website should appear with the welcome banner and a map for its background. There should be a button with magnifying glass on top left/right corner of the website ; depends on the screen size of the device  |
+| 2| User searches for location and its nearby car parks statuses  |<ol><li>Click on the search icon (magnifying-glass)</li><li>Type in search query and click on search</li><li>Click on one of the locations from the search results</li></ol>|The website will "flyto" the specified location and will show the nearby car park icon markers. The icon will show how occupied each car park is, based on the image of the icon.|
+| 3|  |||
+| |  |||
+
 	
 
 ## Credits
@@ -190,5 +198,6 @@ The idea of simplicity and fast interaction for users in order to get the inform
 |Car Park Availability|https://data.gov.sg/dataset/carpark-availability|
 |Bootstrap CSS|https://getbootstrap.com/|
 |Google Fonts|https://fonts.google.com/|
+
 
 
