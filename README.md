@@ -194,7 +194,7 @@ The idea of simplicity and fast interaction for users in order to get the inform
  8.  Adjustable search radius of car parks around the selected location
 
 ### Feature Flow
-
+![](feature_flow.jpg)
 
 
 
