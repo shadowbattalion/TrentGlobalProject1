@@ -94,12 +94,16 @@ https://shadowbattalion.github.io/TrentGlobalProject1/
 <ins> User Stories </ins>
 
 As a **driver**
+I want to **check out if the car park is full before reaching the destination**
+So that **I can plan my travel**
+
+As a **driver**
 I want to **find out the next best place to park my vehicle nearby**
 So that **I can have backup options if the first chosen car park is full**
 
-As a **car driver**
-I want to **check out if the car park is full before reaching the destination**
-So that **I can plan my travel**
+As a **driver**
+I want to **to get updated information about the car park situation**
+So that **so that the information will be accurate anytime**
 
 As a **motorbike rider**
 I want to **check if the the motorbike park is full or available before reaching the destination**
@@ -110,6 +114,12 @@ I want to **check if the the heavy vehicles park is full or available before rea
 So that **I can plan my travel. Not many places have heavy vehicles section**
 
 <ins> Acceptance Criteria <ins>
+
+ 1. User can find a number of car park places nearby the location they intend to search
+ 2. User can find alternate car parks in the vicinity as a backup plan
+ 3. User can expand their area of search for car park around the location if the ones nearby are full 
+ 4. The information about the car park is always fresh and updated
+
 	
 <br>
 <br>
@@ -117,6 +127,8 @@ So that **I can plan my travel. Not many places have heavy vehicles section**
 ### Scope
 	
 #### <ins> Functional requirements </ins>
+
+Search Car Parks
 
  - Input
 	 - User enters a location name to search.
@@ -138,7 +150,7 @@ So that **I can plan my travel. Not many places have heavy vehicles section**
 
 <br>
 	
-Further user actions
+Increase radius of search area
 
  - Input
 	 - User can choose the search area of car park, based on the radius
@@ -147,6 +159,12 @@ Further user actions
  - Output
 	 - New car park markers will be revealed for users reference 
 	
+<br>
+
+Get updated car park information
+
+The process of retrieving car park information will repeat with intervals
+
 <br>
  
 #### <ins> Non-functional requirements </ins>
