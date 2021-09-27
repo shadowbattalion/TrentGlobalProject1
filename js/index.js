@@ -29,6 +29,8 @@ async function start(){
 
             let banner = document.querySelector("#banner")
             banner.classList.add("hide-banner")
+            let btn_set = document.querySelector("#btn-set")
+            btn_set.classList.add("btn-set-expand")
             let search_group = document.querySelector("#search-group")
             search_group.classList.toggle("search-group-expand")
             let search_button =  document.querySelector("#search-btn")
