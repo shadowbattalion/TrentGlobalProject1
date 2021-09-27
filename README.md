@@ -229,7 +229,9 @@ The idea of simplicity and fast interaction for users in order to get the inform
 | 5a| User wants to look for another location (from the current search result)|<ol><li>Click on the search icon (magnifying-glass)</li><li>Click on "Evergreen Primary School"</li></ol>|The website will then “flyto” the specified location and will show the nearby car park icon markers. The icon will show how occupied each car park is, based on the image of the icon.|
 | 5b| User wants to look for another location (new search query)|<ol><li>Click on the search icon (magnifying-glass)</li><li>Type in search query "Bishan" and click the "Search" button</li><li>Click on "Bishan MRT Interchange (NS17/CC15)" from the search results</li></ol>|The website will then “flyto” the specified location and will show the nearby car park icon markers. The icon will show how occupied each car park is, based on the image of the icon.|
 
-	
+
+## Deployment	
+Deployed on Git Pages
 
 ## Credits
 | Acknowledgements | Link |
