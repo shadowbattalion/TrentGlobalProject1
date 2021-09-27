@@ -32,9 +32,9 @@ This project is good, perhaps necessary for drivers in Singapore if they wish to
 | Adding or removing DOM elements to the display(map, DOM tree, game screen) base on user's actions | 1 |8 | 20| 8 |
 | Modifying the CSS of DOM elements based on the user's actions | 2 |5 | 12 | 10 |
 | Use of 1D traversal of array | 3 |10| 15 | 15 |
-| Each use of CSS layout technique (Bootstrap columns, flex box, grid) | 1 |	5 | 12 | 5 |
+| Each use of CSS layout technique (Bootstrap columns, flex box, grid) | 6 |	5 | 12 | 12 |
 | Each case of the map updating base on the user's actions | 2  |5 | 12 | 10 |
-| Each group of layers in the Leaflet map | 1 |	8 | 20 | 8 |
+| Each group of layers in the Leaflet map | 2 |	8 | 20 | 16 |
 | Each group of marker clustering | 1 |	5 | 12 | 5 |
 | Each type of custom marker (using images or custom behaviour) | 3 (time interval inclusive) |	8 | 20 | 20 |
 
