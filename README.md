@@ -162,9 +162,11 @@ Information organisation:
 The idea of simplicity and fast interaction for users in order to get the information at a quick glance
 
 Desktop Mockup:
+	
 ![](readme_images/wireframe_desktop.jpg)
 	
 Mobile Mockup:
+	
 ![](readme_images/wireframe_mobile.jpg)
 
 ### Surface Plane
